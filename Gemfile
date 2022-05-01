@@ -20,3 +20,13 @@ gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
 # Jekyll <= 4.2.0 compatibility with Ruby 3.0
 gem "webrick", "~> 1.7"
+
+# Allow jekyll to publish asciidoc files
+group :jekyll_plugins do
+gem "jekyll-asciidoc"
+gem "jekyll-paginate"
+gem "jekyll-redirect-from"
+gem "jekyll-seo-tag"
+gem "jekyll-archives"
+gem "jekyll-sitemap"
+end
