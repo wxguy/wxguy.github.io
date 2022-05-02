@@ -42,7 +42,6 @@ That is the time I found this [Chirpy theme](https://github.com/cotes2020/jekyll
 
 I have installed all the applications and packages on my [Arch Linux](https://archlinux.org/). The package manager I use is [paru](https://github.com/Morganamilo/paru) as it has the ability to install packages from `aur` repositories. You can also use `pacman` instead. If you are using any other Distribution such as Ubuntu, Open Suse, Debian, etc, you have to use google to find equal command-line options.
 
-> I also used `Python` and `Bash` scripts to generate PDF files for each post and deployment. 
 
 Install all necessary libraries and packages
 
@@ -50,7 +49,7 @@ Install all necessary libraries and packages
 sudo paru -Sy ruby base-devel git
 ```
 
-> The AsciiDoctor framework is not always updated with the phase of latest ruby release. However, Arch Linux always installs latest version of ruby. To avoid incompatibilities, between ruby and AsciiDoctor, it is recommanded to use Ruby Version Manager (rvm) from [https://rvm.io/](https://rvm.io/). Installation instructions also listed on the website. I have installed `ruby 3.0` on my machine.
+> The AsciiDoctor framework is not always updated with the phase of the latest ruby release. However, Arch Linux always installs the latest version of ruby. To avoid incompatibilities, between ruby and AsciiDoctor, it is recommended to use Ruby Version Manager (rvm) from [https://rvm.io/](https://rvm.io/). Installation instructions are also listed on the website. I have installed `ruby 3.0` on my machine.
 {: .prompt-tip }
 
 Install gem packages
@@ -59,17 +58,17 @@ Install gem packages
 gem install exec jekyll bundler
 ```
 
-Clone the [Chirpy theme](https://github.com/cotes2020/jekyll-theme-chirpy) repo. Official documentation of Chirpy recommends using `Chirpy Starter`. But it is easy to configure the existing repo, so I went for cloning the complete repository and rename it to your blog URL name.
+Clone the [Chirpy theme started](https://github.com/cotes2020/chirpy-starter/generate) repo by clicking on it. Name the repo as `username.github.io` and in my case, I entered `wxguy.github.io`  Once I created the remote repo, I cloned it to the local machine for further modification.
 
 ```console
 cd /path/to/your/location
-git clone https://github.com/wxguy/jekyll-theme-chirpy.git
-mv jekyll-theme-chirpy wxguy.github.io
+git clone https://github.com/wxguy/wxguy.github.io.git
 ```
 
 Move into the newly created `wxguy.github.io` blog site directory and ensure that `Gemfile` exists.
 
 ```console
+cd wxguy.github.io
 ls Gemfile
 ```
 
@@ -98,8 +97,88 @@ Start the server using the below `Jekyll` command.
 bundle exec jekyll serve --watch
 ```
 
-If everything goes well, you can access the newly created website through the URL `http://127.0.0.1:4000/` on your favorite web browser. 
+If everything goes well, you can access the newly created website through the URL `http://127.0.0.1:4000/` on your favorite web browser. However, at this stage, it will show any post as we have not written any post inside the `_posts` directory.
+
+## Modify Site Settings
+
+Before you start your blog post, you need to amend some variables in `_config.yml` file. The comments provided in the file are self-explanatory and modified as per your requirement. I have modified the following variables:-
+
+```console
+title:
+tagline:
+description:
+timezone:
+url:
+github: username:
+social :name:
+social :email:
+social :links :github:
+google_analytics :id:
+avatar:
+paginate:
+```
+
+The variable `avatar` is required to display your profile image. You need to provide a path to your profile image for this. I created a directory called `img` under `assets` and placed my profile picture called `avatar.png`. Reloading the site showed my profile image in the sidebar.
+
+If you wish to display the favicon image to be displayed in the current tab, then read this article [https://chirpy.cotes.page/posts/customize-the-favicon/](https://chirpy.cotes.page/posts/customize-the-favicon/).
+ 
+
+## Change Site Font
+
+I like the way content is presented in [https://beautifuljekyll.com/](https://beautifuljekyll.com/) blog. It uses `Lora` and `Times New Roman` to display the content. To implement the same in my blog, I created a `style.css` file under the `assets/css` directory and added the below content.
+
+```css
+---
+---
+
+/*
+  If the number of TAB files has changed, the following variable is required.
+  And it must be defined before `@import`.
+*/
+$tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
+
+@import "{{ site.theme }}";
+
+/* append your custom style below */
+
+html {
+  font-size: 92%
+}
+
+body {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 130%
+}
+
+h1 {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.9rem;
+}
+
+h2 {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.15rem;
+}
+
+h5 {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.1rem;
+}
+```
+
+This ensured that text is changed on the main body and headings to make it uniform.
 
 ## Start Blogging
 
-You need to edit certain files prior to writing a blog post. The documentation section of this theme is pretty good. It is recommended that you read [write new post](https://chirpy.cotes.page/posts/write-a-new-post/) and [text and typography](https://chirpy.cotes.page/posts/text-and-typography/) pages before writing your first blog post. You need to spend some time to ensure to make all the corrections properly. 
+The documentation section of this theme is pretty good. It is recommended that you read [write new post](https://chirpy.cotes.page/posts/write-a-new-post/) and [text and typography](https://chirpy.cotes.page/posts/text-and-typography/) pages before writing your first blog post. You need to spend some time to ensure to make all the corrections properly. 
+

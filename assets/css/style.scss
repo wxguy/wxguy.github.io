@@ -1,0 +1,46 @@
+---
+---
+
+/*
+  If the number of TAB files has changed, the following variable is required.
+  And it must be defined before `@import`.
+*/
+$tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
+
+@import "{{ site.theme }}";
+
+/* append your custom style below */
+
+html {
+  font-size: 92%
+}
+
+body {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 130%
+}
+
+h1 {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.9rem;
+}
+
+h2 {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.15rem;
+}
+
+h5 {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.1rem;
+}
