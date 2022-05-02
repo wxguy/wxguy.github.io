@@ -20,36 +20,36 @@ Thanks for dropping by to know about me.
 
 ## Geo Location 
 
-I am a technology entusisatic from India. My profile name in GitHub is `WxGuy` and I would like to be reffered as same in this virtual space.
+I am a technology enthusiastic from India. My profile name in GitHub is `WxGuy` and I would like to be referred to as the same in this virtual space.
 
 ## Profession
 
-I am Meteorologist by profession and have experience over a decade and half in this field. In Meteorology abbrivation of Weather is noted as `Wx` and hence the name `WxGuy` :-).
+I am a Meteorologist by profession and have experience of over a decade and a half in this field. In Meteorology abbreviation of Weather is noted as `Wx` and hence the name `WxGuy` :-).
 
-## Technical Skills and Intrests
+## Technical Skills and Interests
 
-I have good technical skill set on Linux and Python. I am fluient in writing bash or Python scripts (GUI and CLI) and have good control over Linux system adminstration (worked on all major Distributions).  
+I have a good technical skillset in Linux and Python. I am fluent in writing bash or Python scripts (GUI and CLI) and have good control over Linux system administration (worked on all major Distributions).  
 
-I am also open source enthusiatic and preach others to follow whenever I meet `soft targets`.
+I am also open-source enthusiastic and preach to others to follow whenever I meet `soft targets`.
 
 ## Food and Hobbies
 
-I am foodie and love to eat all kind of dishes. Love spending time with family. If I am free, I would explore documentaries, history or all Indian cinemas from OTT.
+I am a foodie and love to eat all kinds of dishes. Love spending time with family. If I am free, I would explore scientific and history documentaries or all Indian cinemas from OTT.
 
 ## Social Media
 
-Despite my love for technology, I  never developed intrest in social media platforms and hence you will not find me on Facebook, Tweeter etc. However, I do follow news and technology articals about these platforms.
+Despite my love for technology, I  never developed an interest in social media platforms and hence you will not find me on Facebook, Twitter, etc. However, I do follow news and technology articles about these platforms.
 
 ## Why this Blog?
 
 I love teaching and strongly believe in knowledge sharing. That is why this blog is born. You will find posts mostly related to technical in nature but not limited to it.
 
-## Opurtunities
+## Opportunities
 
-I am not looking for any future opurtunities.
+I am not looking for any future opportunities.
 
 ## Reaching Me
 
-You can reach me by dropping message through [GitHub](https://github.com/wxguy). However, there is no gurantie that I will reply back quicly.
+You can reach me by dropping a message through [GitHub](https://github.com/wxguy). However, there is no guarantee that I will reply back quickly.
 
 That's all about me. 
