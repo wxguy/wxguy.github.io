@@ -9,6 +9,8 @@ toc: true
 render_with_liquid: false
 ---
 
+-------
+
 ## Motivation
 
 I do keep fiddling with my system to explore new applications and technologies. There are many times, I have to install and reinstall applications and execute the same commands many times. To remember the workflow and commands I used, I generally keep noting down all information in a text file. I also noticed that I do visit various blogs again and again to read the same articles. These articles need not be the same workflow you are using on your system. Therefore, I have decided to create a blog and write it down on it.
@@ -182,3 +184,6 @@ This ensured that text is changed on the main body and headings to make it unifo
 
 The documentation section of this theme is pretty good. It is recommended that you read [write new post](https://chirpy.cotes.page/posts/write-a-new-post/) and [text and typography](https://chirpy.cotes.page/posts/text-and-typography/) pages before writing your first blog post. You need to spend some time to ensure to make all the corrections properly. 
 
+
+> Please view your post changes in Google Chrome or Chromium. On my system Firefox did not display the site properly. It is also recommanded to review the generated site on *`Private`* mode to ensure that cookies and cache files are not creating an issue.
+{: .prompt-warning }
