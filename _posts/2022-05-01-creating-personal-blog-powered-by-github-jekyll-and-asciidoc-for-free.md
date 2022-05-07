@@ -187,3 +187,11 @@ The documentation section of this theme is pretty good. It is recommended that y
 
 > Please view your post changes in Google Chrome or Chromium. On my system Firefox did not display the site properly. It is also recommanded to review the generated site on *`Private`* mode to ensure that cookies and cache files are not creating an issue.
 {: .prompt-warning }
+
+
+
+------
+You can download this article from [here](https://wxguy.github.io/assets/downloads/pdfs/2022-05-01-creating-personal-blog-powered-by-github-jekyll-and-asciidoc-for-free.pdf) for free.
+
+------
+

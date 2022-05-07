@@ -15,3 +15,9 @@ vendor
 # npm dependencies
 node_modules
 package-lock.json
+
+# Custom files and directories
+tools/generate_pages.py
+tools/gen_pdf.sh
+tools/md5.txt
+tools/pandoc_files/*

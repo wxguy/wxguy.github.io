@@ -12,7 +12,7 @@ img_path: /assets/img/posts/
 
 -------
 
-After I wrote my [first blog post](.././creating-personal-blog-powered-by-github-jekyll-and-asciidoc-for-free), I decided to go for pushing it to Github. It took some time to figure out how to do it. So, I decided to document it here. 
+After I wrote my [first blog post](https://wxguy.github.io/posts/creating-personal-blog-powered-by-github-jekyll-and-asciidoc-for-free/), I decided to go for pushing it to Github. It took some time to figure out how to do it. So, I decided to document it here. 
 
 ## Understand Theme
 
@@ -41,7 +41,7 @@ Once the commit is made to GitHub, it will trigger the GitHub Actions workflow. 
 
 ## Enable Custom Domain (Optional)
 
-This step is an optional one. If you wish to have your domain display your bog, then it is possible to do by following a few more additional steps. ⚠️**Remember that it cost you money**.⚠️ The first step is to buy a domain. There are many sites where you can buy your custom domain. I have chosen [https://www.godaddy.com](https://www.godaddy.com) for the sole reason that it was cheap. You can use any other domain sale related site to purchase a domain name of your interest. 
+This step is an optional one. If you wish to have your domain display your bog, then it is possible to do by following a few more additional steps. **Remember that it cost you money**. The first step is to buy a domain. There are many sites where you can buy your custom domain. I have chosen [https://www.godaddy.com](https://www.godaddy.com) for the sole reason that it was cheap. You can use any other domain sale related site to purchase a domain name of your interest. 
 
 I bought `http://wxguy.in`. I had to modify at two locations to make the site live. Firstly, log in to [https://www.godaddy.com](https://www.godaddy.com) and select `Manage Domain` which you will find under the newly purchased domain id. Then click `Domain Settings` and then click `Manage DNS`.  Your domain settings will look like the below.
 
@@ -107,3 +107,12 @@ wxguy.in.               600     IN      A       185.199.109.153
 ```
 
 Now onwards, you can access your site on your own domain `wxguy.in` directly instead of `username.github.io`. Even if you try to access `username.github.io`, it will redirect to `wxguy.in`.
+
+
+
+
+------
+You can download this article from [here](https://wxguy.github.io/assets/downloads/pdfs/2022-05-02-deploying-jekyll-blog-on-github.pdf) for free.
+
+------
+
