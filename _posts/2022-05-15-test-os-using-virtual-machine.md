@@ -172,50 +172,62 @@ Now that we have installed Virt-Manager, we can proceed further to install Ubunt
 The first impression after opening the Virt-Manager GUI was not so good. It looked very minimal as compared with Virtual Box. There are just two rows with the name `LXC` and `QEMU/KVM` I could see on the Virt-Manager GUI.  
 
 ![Virt-Manager GUI](virt-manager-gui.png){: .shadow }
+_Virt-Manager GUI_
 
 You can add a Virtual Machine by clicking on the `+` sign as shown below.
 
 ![Add New Virtual Machine](virt-manager-add.png){: .shadow }
+_Add New Virtual Machine_
 
 That would bring up a new window as shown below. First, we need to select `QEMY/KVM` as the connection type. Then select Local install media (ISO image or CDROM) and move forward.
 
 ![Add New Virtual Machine](virt-machine-step-1.png){: .shadow }
+_Add New Virtual Machine_
 
 In the next option window, we need to select ISO and Linux OS or Distro type. There is also an option to detect the OS type automatically. So, I selected the auto option. However, Virt-Manager could not detect the latest ISO automatically and showed me this error. 
 
 ![Error Detecting Ubuntu ISO Automatically](virtual-manager-auto-detect-error.png){: .shadow }
+_Error Detecting Ubuntu ISO Automatically_
 
 Now, I had to select the closest Ubuntu version i.e. Ubuntu 21.10. After this, the options window will look like this:
 
 ![Add ISO to Virtual Machine](virt-machine-step-2-1.png){: .shadow }
+_Add ISO to Virtual Machine_
 
 Next, we need to allocate our hardware resources to Virtual Machine Guest OS. It depends on your host OS resource usage. I have 8 processors and 16GB RAM. Therefore, I have provided half of the hardware resources which include 4 processors and 8GB for Ubuntu Guest OS.
 
 ![Provide No of Processors and RAM to VM](virt-machine-step-3.png){: .shadow }
+_Provide No of Processors and RAM to VM_
 
 In the next window, we need to select HDD space for our Guest OS. You can use either the default location or manage it to point to other filesystem directories. If you have enough space in your root partition, then choose default. I wanted to save the Guest OS file to a different partition. Hence I have chosen Manage.
 
 ![Add HDD Space to Ubuntu](virt-machine-step-4-1.png){: .shadow }
+_Add HDD Space to Ubuntu_
 
 Selecting Manage brings in to the below option where you can add a new filesystem directory. I created a separate directory called `ubuntu22.04` in the target location and allocated 50GB for Guest OS. Finally, your location option should lead to your custom directory.
 
 ![Choose Custom Location HDD Space](virt-machine-step-4-2.png){: .shadow }
+_Choose Custom Location HDD Space_
 
 After choosing the HDD space, the final window will look like as shown below screenshot. Ensure that your storage path is correct, select the `default` option for the network under `NAT` and click the finish button.
 
 ![Review New Guest Virtual Machine Options](virt-machine-step-5.png){: .shadow }
+_Review New Guest Virtual Machine Options_
 
 Immediately after clicking on `Finish`, the Virtual Machine booted from Ubuntu ISO as shown below.
 
 ![Ubuntu Boot Menu](virt-manager-ubuntu-boot.png){: .shadow }
+_Ubuntu Boot Menu_
 
 There is one good thing I have observed is that the Guest OS screen was initially restricted to limited space within the VM viewer before installing Ubuntu Guest OS. This you can see in the below image in which arrow free space is indicated with arrows.
 
 ![Ubuntu Guest VM Viewer Before Install](virt-manager-ubuntu-bfr-install.png){: .shadow }
+_Ubuntu Guest VM Viewer Before Install_
 
 However, after installing and rebooting Guest OS, it automatically adjusted to the entire VM viewer screen as shown below. That was good. The same is not possible to achieve under Virtual Box without further tweaking.
 
 ![Ubuntu Guest VM Viewer After Install](virt-manager-ubuntu-after-install.png){: .shadow }
+_Ubuntu Guest VM Viewer After Install_
 
 ## Setting Up Shared Folder
 
@@ -233,10 +245,12 @@ $ sudo chmod 777 -R shared/
 The `shared` directory was given all rights to avoid read-only errors from Guest OS. Now open the Virtual Manager viewer for Ubuntu Guest OS and click on the Show Hardware Details option as shown in the below image.
 
 ![Show Hardware Details](virt-manager-hw-details.png){: .shadow }
+_Show Hardware Details_
 
 Here we need to set certain options in appropriate locations. Click `Add Hardware`. Under `File System` --> select `virtio-9p` filesystem driver --> provide your Host directory path which you need to share with Guest --> `/shared` as target path --> click `Finish` and close the window. Your options should look like the below.
 
 ![VM Shared Folder Options](virt-machine-shared-folder.png){: .shadow }
+_VM Shared Folder Options_
 
 **On Ubuntu 22.04 Guest OS**
 
