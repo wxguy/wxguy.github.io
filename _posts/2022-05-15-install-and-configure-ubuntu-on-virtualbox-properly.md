@@ -11,6 +11,8 @@ render_with_liquid: false
 img_path: /assets/img/virtualbox/
 ---
 
+[![HitCount](https://hits.dwyl.com/wxguy/wxguygithubio.svg?style=flat&show=unique)](http://hits.dwyl.com/wxguy/wxguygithubio)
+
 -------
 
 ## Virtual Machine
