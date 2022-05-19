@@ -1,7 +1,7 @@
 ---
 title: Creating a personal blog powered by GitHub, Jekyll, and AsciiDoc for free
 author: wxguy
-date: 2022-04-30 20:55:00 +0530
+date: 2022-05-01 20:55:00 +0530
 categories: [Blogging, Tutorial]
 tags: [jekyll,asciidoc,linux,github]
 pin: false

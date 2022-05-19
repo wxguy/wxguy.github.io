@@ -1,7 +1,7 @@
 ---
 title: How to Enable Hits or Page Views for Jekyll Blog Posts 
 author: wxguy
-date: 2022-05-15 21:45:00 +0530
+date: 2022-05-18 17:30:00 +0530
 categories: [Tutorial]
 tags: [linux, jekyll, page-hits, page-views, hits]
 pin: false

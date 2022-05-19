@@ -1,7 +1,7 @@
 ---
 title: Install Ubuntu on VirtualBox and Configure it Properly
 author: wxguy
-date: 2022-05-15 21:45:00 +0530
+date: 2022-05-17 21:45:00 +0530
 categories: [Tutorial]
 tags: [arch linux, linux, virtualbox, ubuntu]
 pin: false
