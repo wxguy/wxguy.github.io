@@ -93,6 +93,9 @@ Install all plugins required for using the Chirpy theme. It may take a few min, 
 bundle install
 ```
 
+> Before adding content and start your server, you may consider executing `git config --global --add safe.directory /path/to//wxguy.github.io`  command. This will give you write permission to all files and edit files from dirrent OS.
+{: .prompt-tip}
+
 Start the server using the below `Jekyll` command.
 
 ```console

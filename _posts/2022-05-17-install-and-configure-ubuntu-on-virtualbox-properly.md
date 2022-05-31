@@ -413,3 +413,10 @@ Though the steps involved in configuring VirtualBox are many, they are straightf
 You can download this article from [here](https://wxguy.github.io/assets/downloads/pdfs/2022-05-15-install-and-configure-ubuntu-on-virtualbox-properly.pdf) for free.
 
 ------
+
+
+------
+You can download this article from [here](https://wxguy.github.io/assets/downloads/pdfs/2022-05-17-install-and-configure-ubuntu-on-virtualbox-properly.pdf) for free.
+
+------
+
