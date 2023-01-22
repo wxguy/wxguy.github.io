@@ -6,6 +6,7 @@ categories: [Info, collections]
 tags: [wgrib2,linux,weather,grib2]
 pin: false
 toc: true
+comments: true
 render_with_liquid: true
 ---
 

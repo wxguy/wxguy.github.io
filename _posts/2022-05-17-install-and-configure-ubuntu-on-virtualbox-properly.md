@@ -15,7 +15,7 @@ img_path: /assets/img/virtualbox/
 
 ## Virtual Machine
 
-As the name suggests, a Virtual Machine is a software that emulates your real hardware. This will enable you to install an Operating System within your Host Operating System. The utility of this Virtual Machine depends on the way you want to use it or configure it. For example, there may be software that only works on Windows-based OS but you have the right to use only Linux-based OS in your organisation. In such a case, you can install a Windows OS within Linux through Virtual Machine software. 
+As the name suggests, a Virtual Machine is a software that emulates your real hardware. This will enable you to install an Operating System within your Host Operating System. The utility of this Virtual Machine depends on the way you want to use it or configure it. For example, there may be software that only works on Windows-based OS but you have the right to use only Linux-based OS in your organisation. In such a case, you can install a Windows OS within Linux through Virtual Machine software.
 
 The main reason why I use Virtual Machine is due to Micro Soft Office Products. Whenever I work on Word or Presentations which required to be shared with others, I fire up my Windows Virtual Machine, use MS Office, and shut down. In addition, I also use Virtual Machine for testing various Distro and to test my pet projects. There are quite a few options available to choose Virtual Machine software, both paid and free. However, for personal and general-purpose, I recommend using the following:
  -  [VMware Workstation Player](https://www.vmware.com/products/workstation-player.html)
@@ -30,7 +30,7 @@ I have written an article about Virt-Manager and you can read it [here](https://
  -  Cross-platform (Linux, Windows, and Mac OS)
  -  Rapid development cycle to support the latest OSs
  -  Many options are free for personal use
- -  Free 
+ -  Free
  -  Superior documentation
  -  Help from the community
 
@@ -51,7 +51,7 @@ This tutorial is a lengthy one from installing VirtualBox to enabling file-shari
 
 ## Install VirtualBox on Host OS
 
-My Host OS is Arch Linux with up-to-date packages. We need to install three core components to make VirtualBox more user-friendly. I use the `linux-lts` kernel on my machine and accordingly, the following three packages are to be installed. While `virtualbox-ext-oracle` can be downloaded directly from the VirtualBox website, I preferred to install it from AUR and I never encountered any issues so far. I used `paru` package manager instead of `pacman` as it would pull AUR packages as well. 
+My Host OS is Arch Linux with up-to-date packages. We need to install three core components to make VirtualBox more user-friendly. I use the `linux-lts` kernel on my machine and accordingly, the following three packages are to be installed. While `virtualbox-ext-oracle` can be downloaded directly from the VirtualBox website, I preferred to install it from AUR and I never encountered any issues so far. I used `paru` package manager instead of `pacman` as it would pull AUR packages as well.
 
 ```console
 $ paru -S virtualbox virtualbox-host-dkms linux-lts-headers
@@ -71,7 +71,7 @@ Now add `vboxusers` to the group.
 $ sudo usermod -aG vboxusers $(whoami)
 ```
 
-> We also need to install the `linux-headers` package on Ubuntu Guest OS. That will be done in the latter part of the tutorial. 
+> We also need to install the `linux-headers` package on Ubuntu Guest OS. That will be done in the latter part of the tutorial.
 {: .prompt-tip }
 
 ## Download Ubuntu 22.04 ISO
@@ -97,7 +97,7 @@ Clicking on the `New` button will bring a new window as indicated below that wil
 ![](3-virtualbox-create-vm.png){: .shadow }
 _VirtualBox: Add New Virtual Machine_
 
-In the next window, allocate the necessary RAM size. Remember that whatever you provide here will not be available for your Host OS. The minimum _recommanded RAM size is 2GB_. But I am providing **8GB** as my system has 16GB RAM. 
+In the next window, allocate the necessary RAM size. Remember that whatever you provide here will not be available for your Host OS. The minimum _recommanded RAM size is 2GB_. But I am providing **8GB** as my system has 16GB RAM.
 
 ![](4-virtualbox-vm-mem-size.png){: .shadow }
 _VirtualBox: Provide Desired RAM Size_
@@ -112,7 +112,7 @@ In the new window, choose the `VDI (VirtualBox Disk Image)` option and click `Ne
 ![](6-virtualbox-vm-hdd-type.png){: .shadow }
 _VirtualBox: Choose Hard Disk Type_
 
-Now, we need to select how data is to be stored. The option `Dynamically allocated` will not create the whole hard disk at one go and it will grow with Guest OS usage. The other option `Fixed size` will create the whole virtual hard disk file on a local directory which is not recommended. Therefore, we will select the `Dynamically allocated` option and click `Next`. 
+Now, we need to select how data is to be stored. The option `Dynamically allocated` will not create the whole hard disk at one go and it will grow with Guest OS usage. The other option `Fixed size` will create the whole virtual hard disk file on a local directory which is not recommended. Therefore, we will select the `Dynamically allocated` option and click `Next`.
 
 ![](7-virtualbox-vm-hdd-dynamic.png){: .shadow }
 _VirtualBox: Select Way to Store Data to Storage_
@@ -122,7 +122,7 @@ That will lead to the next option to allocate virtual hard disk space for the ma
 ![](8-virtualbox-vm-hdd-file-loc-size.png){: .shadow }
 _VirtualBox: Provide Desired Hard Disk Space for VM Ubuntu OS_
 
-After the Virtual Machine for Ubuntu 22.04 Guest OS is set up, it will return to VirtualBox GUI. Here you can see that a new entry for Ubuntu 22.04 is made.  
+After the Virtual Machine for Ubuntu 22.04 Guest OS is set up, it will return to VirtualBox GUI. Here you can see that a new entry for Ubuntu 22.04 is made.
 
 ![](9-vbox-ubuntu-vm-added.png){: .shadow }
 _VirtualBox: View of VirtualBox GUI After Setting Up_
@@ -131,22 +131,22 @@ _VirtualBox: View of VirtualBox GUI After Setting Up_
 
 There are a few more additional settings that need to be tweaked so that we can install Guest OS and improve its performance. Firstly, select Virtual Machine `Ubuntu 22.04` from the left panel and click on the `Settings` option. That will bring up the below settings window. Here we can tweak more options for Guest OS and insert Ubuntu 22.04 ISO for installing from it.
 
-Firstly, under the `General` --> `Basic` tab section, ensure that name of the machine is mentioned as `Ubuntu 22.04`. 
+Firstly, under the `General` --> `Basic` tab section, ensure that name of the machine is mentioned as `Ubuntu 22.04`.
 
 ![](11-vbox-ubu-settings-gen-basics.png){: .shadow }
 _VirtualBox: Settings: General Basic Options_
 
-Under the `General` --> `Advanced` section, we can tweak the clipboard copy-paste between Host and Guest OS. Select `Bidirectional` for both _Shared Clipboard_ and _Drag'n'Drop_ option as shown below. 
+Under the `General` --> `Advanced` section, we can tweak the clipboard copy-paste between Host and Guest OS. Select `Bidirectional` for both _Shared Clipboard_ and _Drag'n'Drop_ option as shown below.
 
 ![](12-vbox-ubu-settings-gen-advanced.png){: .shadow }
 _VirtualBox: Settings: General Advanced  Options_
 
-Then go to `System` --> `Motherboard` tab and deselect `Floppy` from the boot order list as we won't use it. 
+Then go to `System` --> `Motherboard` tab and deselect `Floppy` from the boot order list as we won't use it.
 
 ![](13-vbox-ubu-settings-sys-mboard.png){: .shadow }
 _VirtualBox: Settings: System Motherboard Options_
 
-Move to `System` --> `Processor` tab and increase the number of the processor to your desired value. If you have 4 then give 2. I have 8 and hence given `4`. 
+Move to `System` --> `Processor` tab and increase the number of the processor to your desired value. If you have 4 then give 2. I have 8 and hence given `4`.
 
 ![](14-vbox-ubu-settings-sys-processors.png){: .shadow }
 _VirtualBox: Settings: System Processor Options_
@@ -181,7 +181,7 @@ After selecting the Ubuntu 22.04 ISO, you can see ISO is attached to `Controller
 ![](20-vbox-ubu-stor-ide-attach-iso.png){: .shadow }
 _VirtualBox: Settings: Storage Controller After Attaching ISO_
 
-Now, go to `Network` --> `Adaptor 1` tab and select `NAT`. For simple browsing and common internet-related option, NAT is more than enough. If you want to interact with Guest OS through network connect, then change this value to `Bridged Network` which will directly interact with your Host hardware. 
+Now, go to `Network` --> `Adaptor 1` tab and select `NAT`. For simple browsing and common internet-related option, NAT is more than enough. If you want to interact with Guest OS through network connect, then change this value to `Bridged Network` which will directly interact with your Host hardware.
 
 ![](21-vbox-ubu-set-net-adaptor.png){: .shadow }
 _VirtualBox: Settings: Network Adopter Options_
@@ -195,7 +195,7 @@ If you want Guest OS to access your Host USB devices, then go to `USB` and enabl
 ![](22-vbox-ubu-set-usb-controller.png){: .shadow }
 _VirtualBox: Settings: USB Controller Options_
 
-You can also configure your shared folder right now before even booting your Ubuntu 22.04 ISO. For this, go to `Shared Folder` and click on the `+` icon as shown in the below image.  
+You can also configure your shared folder right now before even booting your Ubuntu 22.04 ISO. For this, go to `Shared Folder` and click on the `+` icon as shown in the below image.
 
 ![](23-vbox-ubu-set-share-fold-wo.png){: .shadow }
 _VirtualBox: Settings: Shared Folders Options_
@@ -210,14 +210,14 @@ I have added three two-partitions and the Host's home directory for sharing with
 ![](25-vbox-ubu-set-share-fold-complete.png){: .shadow }
 _VirtualBox: Settings: Shared Folders PAth After Setting Up_
 
-That's all. After enabling/ disabling various options, you can start the Virtual Machine by clicking on the `Start` icon as shown below. 
+That's all. After enabling/ disabling various options, you can start the Virtual Machine by clicking on the `Start` icon as shown below.
 
 ![](26-vbox-ubu-start-vm.png){: .shadow }
 _VirtualBox: Start Ubuntu 22.04 Guest OS_
 
 ## Ubuntu Install Procedures
 
-Installing Ubuntu 22.04 on a Virtual Machine is a straightforward process. However, I will show here how I did on my Virtual Machine. 
+Installing Ubuntu 22.04 on a Virtual Machine is a straightforward process. However, I will show here how I did on my Virtual Machine.
 
 Starting the Ubuntu 22.04 Virtual Machine will bring in this GRUB Boot message. The select first option `Try or Install Ubuntu` option.
 
@@ -288,7 +288,7 @@ If you wish to help Ubuntu you can select appropriate options and select the `Ne
 ![](41-vbox-ubu-post-inst-feedback-skip.png){: .shadow }
 _Ubuntu Install: Option to Help Ubuntu_
 
-You can enable or disable _Location Services_ and click `Next`. 
+You can enable or disable _Location Services_ and click `Next`.
 
 ![](42-vbox-ubu-post-inst-privacy-next.png){: .shadow }
 _Ubuntu Install: Privacy Option_
@@ -307,7 +307,7 @@ $ sudo apt upgrade -y
 
 or follow the rest of the guide to set up the best server for your country and update your system.
 
-On my system, I could not update to the latest packages as it always failed with the `index failed to download` error message. So I decided to change my server to the best one. For this open the `Software & Updates` window by searching on the activities search option. 
+On my system, I could not update to the latest packages as it always failed with the `index failed to download` error message. So I decided to change my server to the best one. For this open the `Software & Updates` window by searching on the activities search option.
 
 ![](43-2-vbox-ubu-post-inst-update-sel-server.png){: .shadow }
 _Ubuntu Install: Software And Updates Window_
@@ -390,7 +390,7 @@ _Ubuntu Post Install: Look After Installing VB GA_
 
 ## Sharing of Files Using Shared Folder
 
-Though we have added Shared Folder from Host OS and showing up in Guest OS's file manager, you will not be able to use it. When you access it for the first time you will get the following `Permission Error`. 
+Though we have added Shared Folder from Host OS and showing up in Guest OS's file manager, you will not be able to use it. When you access it for the first time you will get the following `Permission Error`.
 
 ![](49-vbox-ubu-post-inst-sf-mnt-error.png){: .shadow }
 _File Share: Permission Error For Shared Folder_
@@ -413,10 +413,3 @@ Though the steps involved in configuring VirtualBox are many, they are straightf
 You can download this article from [here](https://wxguy.github.io/assets/downloads/pdfs/2022-05-15-install-and-configure-ubuntu-on-virtualbox-properly.pdf) for free.
 
 ------
-
-
-------
-You can download this article from [here](https://wxguy.github.io/assets/downloads/pdfs/2022-05-17-install-and-configure-ubuntu-on-virtualbox-properly.pdf) for free.
-
-------
-
