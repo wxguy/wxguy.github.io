@@ -13,6 +13,10 @@ img_path: /assets/img/arch-install/
 
 -------
 
+## Update on Availability of `to-arch.sh` Script
+
+The link to the `to-arch.sh` script mentioned in this post is vanished. The user account of the author is suspended at [https://sr.ht](https://sr.ht). Whatever the reason may be, the the usefulness of this script will be useful to others who whats to follow the instructions mentioned in this post. Therefore, I have uploaded a copy of this script in to my blog post. You can download the script from here [https://wxguy.github.io/assets/downloads/files/to-arch.sh](https://wxguy.github.io/assets/downloads/files/to-arch.sh). Since there is no update to this script from the author, I highly recommend to use it on Virtual Box first on a fresh install and on a real hardware thereafter.
+
 ## Why Yet Another Arch Linux Install Tutorial?
 
 If I have to say it in two words, the tutorial written here is damn `easy` and `quick`.
