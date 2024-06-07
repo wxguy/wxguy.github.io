@@ -135,7 +135,7 @@ docker compose up -d
 
 You can also view what is happening to Windows OS from a web browser at http://127.0.0.1:8006. The docker command will install the OS without any user intervention. Once installation is completed, you must logout before proceeding.
 
-> If you wish to access all the files located at different mount partitions, it is recommended to link the mounted partition to your home directory like `ln -s /mnt/34B2CD28B2CCEF82/Data /home/username`.
+> If you wish to access all the files located at different mount partitions, it is recommended to link the mounted partition to your home directory like `ln -s /mnt/Data /home/username`.
 {: .prompt-tip }
 
 ## Install and Configure Winapps
@@ -226,4 +226,44 @@ X-GNOME-Autostart-enabled=true
 ```
 
 That's it. Now onwards, every time you reboot, your Windows OS also will boot and run in the background. This would ensure that your MS Office applications are always available in Arch Linux whenever you open it.
+
+
+## Useful Tips
+
+You can access the full Windows 11 Desktop using following command:
+
+```bash
+xfreerdp3 +clipboard /u:Sundar +compression -wallpaper -menu-anims -themes /v:127.0.0.1 /p:xxxxxx +fonts /drive:Data,/mnt/Data /home-drive /f
+```
+
+where:
+  * `+clipboard` --> Share clipboard copy between Host and Guest OS
+  * `/u:` --> Username of the Windows 11 Desktop
+  * `+compression`  --> Enable data compression to speedup the machine
+  * `-wallpaper` --> Don't shown wallpaper to improve the Windows 11 performance
+  * `-menu-anims`  --> Remove menu animation of Guest OS
+  * `-themes`  --> Remove theme of Guest OS
+  * `/v:`  -->  Guest OS IP address
+  * `/p:`  Password of the user we will be required to login (Change with yours)
+  * `+fonts`  -->  Keep the Guest OS fonts
+  * `/drive:` Enable drive. In this case, I am sharing mount point
+  * `/home-drive`  -->  Share home directory of Host OS
+  * `/f`  -->  Open Windows 11 in full-screen mode
+
+> When the above command is executed with `\f` (full-screen) you won't be able to navigate to next opened window using normal `Alt` + `Tab` keys. If you wish to exit windows full-screen, you can use the `Alt` + `Ctrl` + `Enter` keys.
+
+If you encounter any error in connecting to Windows applications, you can check if Windows 11 docker service is running using following command:
+
+```bash
+$ docker ps
+```
+
+The above command should list you the Windows Guest OS as shown below:
+
+```bash
+CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS         PORTS                                                                                                                             NAMES
+4d4e0f472f61   dockurr/windows   "/usr/bin/tini -s /r…"   7 minutes ago   Up 2 minutes   0.0.0.0:3389->3389/tcp, :::3389->3389/tcp, 0.0.0.0:8006->8006/tcp, 0.0.0.0:3389->3389/udp, :::8006->8006/tcp, :::3389->3389/udp   windows
+```
+
+Your docker may not boot Windows 11 Desktop if you have enabled 'Desktop Sharing' option in GNOME Settings. I encountered this issue recently and disabled it from GNOME Settings --> Desktop Sharing --> Disable Desktop Sharing.
 
