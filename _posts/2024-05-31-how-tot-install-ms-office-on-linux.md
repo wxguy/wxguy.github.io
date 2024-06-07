@@ -251,6 +251,7 @@ where:
   * `/f`  -->  Open Windows 11 in full-screen mode
 
 > When the above command is executed with `\f` (full-screen) you won't be able to navigate to next opened window using normal `Alt` + `Tab` keys. If you wish to exit windows full-screen, you can use the `Alt` + `Ctrl` + `Enter` keys.
+{: .prompt-tip }
 
 If you encounter any error in connecting to Windows applications, you can check if Windows 11 docker service is running using following command:
 
