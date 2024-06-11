@@ -38,7 +38,6 @@ or finally
 
 When you follow any one of the methods listed above, either you will end up using an older version of MS Office or you will still use the software that is not fully compatible with MS Office (except using MS Office directly inside Windows). I have tested all the methods and the best solution I found is the procedure listed in subsequent paragraphs.
 
-
 ## Winapps for Native Windows Software (kind-of) on Linux
 
 So what is so fuzz about Winapps? It is a community software which offers one of the virtualisation solutions to run any Windows applications as if they are installed inside a Linux Desktop. It uses Windows Virtual Machine to install the software and [FreeRDP](https://www.freerdp.com) to access this software from Linux. The beauty of this application is the native integration of the file manager right-click option to open and specify the mime type to open in Windows software.
@@ -133,7 +132,7 @@ We will be using the above information to tell the docker-compose command to ins
 docker compose up -d
 ```
 
-You can also view what is happening to Windows OS from a web browser at http://127.0.0.1:8006. The docker command will install the OS without any user intervention. Once installation is completed, you must logout before proceeding.
+You can also view what is happening to Windows OS from a web browser at <http://127.0.0.1:8006>. The docker command will install the OS without any user intervention. Once installation is completed, you must logout before proceeding.
 
 > If you wish to access all the files located at different mount partitions, it is recommended to link the mounted partition to your home directory like `ln -s /mnt/Data /home/username`.
 {: .prompt-tip }
