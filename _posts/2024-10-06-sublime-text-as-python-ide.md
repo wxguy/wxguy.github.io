@@ -149,7 +149,13 @@ Like any other text editors and IDEs, Sublime Text also offer set of key binding
 
   // Setup super tab for auto completion. In the auto completion prompt, you can use 
   // tab and shift+tab to navigate up and down. Brought this habit from NeoVim editor.
-  { "keys": ["tab"], "command": "move", "args": {"by": "lines", "forward": true} },
+  { "keys": ["tab"], "command": "move", "args": {"by": "lines", "forward": true}, "context": [
+    {
+      "key": "auto_complete_visible",
+      "operand": true,
+      "operator": "equal"
+    }
+  ] },
   { "keys": ["shift+tab"], "command": "move", "args": {"by": "lines", "forward": false} },
 ]
 ```
