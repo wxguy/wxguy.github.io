@@ -86,8 +86,8 @@ sudo pacman -Sy freerdp dnsmasq vde2 bridge-utils openbsd-netcat libguestfs ebta
 Add KVM and libvert into to user group:
 
 ```bash
-sudo usermod -aG $(whoami) libvirt
-sudo usermod -aG $(whoami) KVM
+sudo usermod -aG libvirt $(whoami)
+sudo usermod -aG KVM $(whoami)
 ```
 
 Enable `podman` and `docker` services using following commands:
