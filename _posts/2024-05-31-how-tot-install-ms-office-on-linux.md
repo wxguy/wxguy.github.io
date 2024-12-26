@@ -11,8 +11,12 @@ render_with_liquid: true
 img_path: /assets/img/winapps/
 ---
 
+> A post regarding installing MS Office on Alma Linux or RHEL based OS is available at [https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros](https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros).
+{: .prompt-tip }
+
 ![MS Office 2021 Word File in Arch Linux](winapps-word-highlight.png){: .shadow }
 _MS Office 2021 Word File in Arch Linux_
+
 
 ## Requirement of Microsoft Office
 

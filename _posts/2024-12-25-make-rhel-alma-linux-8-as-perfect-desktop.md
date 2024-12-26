@@ -541,6 +541,6 @@ Once done, it automatically checks for NTP time and correct the system clock.
 
 ## Install MS Office
 
-A separate blog post is on its way. Stay tuned....
+~~A separate blog post is on its way. Stay tuned....~~.  You can find the details on how to install MS Office on RHEL based distro at [https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros](https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros).
 
 That's it for now. I may update the post if I find some other useful stuff.
