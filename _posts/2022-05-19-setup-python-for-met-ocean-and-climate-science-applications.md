@@ -2,7 +2,7 @@
 title: How to Setup Python for Atmospheric, Ocean and Climate Sciences
 author: wxguy
 date: 2022-05-19 18:00:00 +0530
-img_path: /assets/img/python-setup
+media_subpath: /assets/img/python-setup
 categories: [Tutorial]
 tags: [python,scientific,conda]
 pin: false

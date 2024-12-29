@@ -79,8 +79,6 @@ Here is the list of Python modules, packages, and programs that I keep on referr
 
 [siphon](https://www.unidata.ucar.edu/software/siphon/). Siphon is a collection of Python utilities for downloading data from remote data services. Much of Siphon’s current functionality focuses on access to data hosted on a THREDDS Data Server, although access to data hosted by other web technologies is being quickly added.  
 
-[mkmov](http://christopherbull.com.au/mkmov/). This utility is designed to make a movie from a NetCDF file or stitch together a series of .png files. The interface is by command line and everything is done in one line.
-
 -------
 
 ## Data Science, Machine Learning, and Artificial Intelligence
@@ -187,13 +185,13 @@ Here is the list of Python modules, packages, and programs that I keep on referr
 
 [pyferret](https://ferret.pmel.noaa.gov/Ferret/documentation/pyferret). Python interface to famous ferret visualisation tool for oceanographers. 
 
-[gradspy(]http://cola.gmu.edu/grads/gadoc/python.html). Official Python extension of Grads plotting software. 
+[gradspy(]https://cola.gmu.edu/grads/gadoc/python.html). Official Python extension of Grads plotting software. If the site is not reachable, please use `http` in the url.
 
 [py3grads](https://github.com/meridionaljet/py3grads). Yet another Python 3 Interface to GrADS.
 
 [pygmt](https://www.pygmt.org/latest/). PyGMT is a library for processing geospatial and geophysical data and making publication-quality maps and figures. It provides a Pythonic interface for the Generic Mapping Tools (GMT), a command-line program widely used in the Earth Sciences.
 
-[geoviews](http://geoviews.org/). GeoViews is a Python library that makes it easy to explore and visualize geographical, meteorological, and oceanographic datasets, such as those used in weather, climate, and remote sensing research. 
+[geoviews](https://geoviews.org/). GeoViews is a Python library that makes it easy to explore and visualize geographical, meteorological, and oceanographic datasets, such as those used in weather, climate, and remote sensing research. 
 
 [geocat-viz](https://geocat-viz.readthedocs.io/en/latest/). The GeoCAT-viz repo contains tools to help plot data, including convenience and plotting functions that are used to facilitate plotting geosciences data with Matplotlib, Cartopy, and possibly other Python ecosystems plotting packages. 
 
@@ -211,7 +209,7 @@ Here is the list of Python modules, packages, and programs that I keep on referr
 
 [cf-python](https://ncas-cms.github.io/cf-python/). An Earth Science data analysis library that is built on a complete implementation of the CF data model. 
 
-[cfdm](https://ncas-cms.github.io/cfdm/). This library implements the data model of the CF (Climate and Forecast) metadata conventions [http://cfconventions.org](http://cfconventions.org) and so should be able to represent and manipulate all existing and conceivable CF-compliant datasets. 
+[cfdm](https://ncas-cms.github.io/cfdm/). This library implements the data model of the CF (Climate and Forecast) metadata conventions [https://cfconventions.org](https://cfconventions.org) and so should be able to represent and manipulate all existing and conceivable CF-compliant datasets. 
 
 [cf-checker](https://github.com/cedadev/cf-checker). The CF Checker is a utility that checks the contents of a NetCDF file and complies with the Climate and Forecasts (CF) Metadata Convention. 
 
@@ -276,7 +274,7 @@ Here is the list of Python modules, packages, and programs that I keep on referr
 
 [qgis](https://qgis.org/en/site/). QGIS is a free and open-source cross-platform desktop geographic information system application that supports viewing, editing, printing, and analysis of geospatial data. It also has a Python API to extend its ability.  
 
-[pysal](http://pysal.org/pysal/).  Python spatial analysis library is an open-source cross-platform library for geospatial data science with an emphasis on geospatial vector data written in Python.  
+[pysal](https://pysal.org/pysal/).  Python spatial analysis library is an open-source cross-platform library for geospatial data science with an emphasis on geospatial vector data written in Python.  
 
 [geopy](https://geopy.readthedocs.io/en/stable/). It is a Python client for several popular geocoding web services. geopy makes it easy for Python developers to locate the coordinates of addresses, cities, countries, and landmarks across the globe using third-party geocoders and other data sources. 
 
