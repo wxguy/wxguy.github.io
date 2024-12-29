@@ -1,15 +1,26 @@
-# hidden files
+# Hidden Files
 .*
 !.git*
 !.editorconfig
 !.nojekyll
 !.travis.yml
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
 
-# bundler cache
-_site
+# Bundler Cache
 vendor
+.bundle
+Gemfile.lock
 
-# rubygem
+# Jekyll cache
+.jekyll-cache
+.jekyll-metadata
+_site
+
+# RubyGems
 *.gem
 
 # npm dependencies
@@ -21,3 +32,7 @@ tools/generate_pages.py
 tools/gen_pdf.sh
 tools/md5.txt
 tools/pandoc_files/*
+
+# Misc
+_sass/vendors
+assets/js/dist
