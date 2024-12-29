@@ -9,6 +9,9 @@ toc: true
 comments: true
 render_with_liquid: true
 media_subpath: /assets/img/rhel_perfect_desktop/
+image:
+  path: alma-linux-xfce.png
+  alt: Alma Linux with XFCE4 Desktop Manager in Live Mode. (Credit:- https://wiki.almalinux.org)
 ---
 
 ## Why Old and Conservative Distribution

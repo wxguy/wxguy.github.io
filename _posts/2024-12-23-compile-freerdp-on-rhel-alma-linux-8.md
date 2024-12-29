@@ -9,6 +9,9 @@ toc: true
 comments: true
 render_with_liquid: true
 media_subpath: /assets/img/freerdp/
+image:
+  path: freerdp_server_screenshot.png
+  alt: Accessing Linux from Windows using FreeRDP. (Credit:- https://www.freerdp.com)
 ---
 
 ## About FreeRDP

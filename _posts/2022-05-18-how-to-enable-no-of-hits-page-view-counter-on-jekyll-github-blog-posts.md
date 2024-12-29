@@ -7,8 +7,11 @@ tags: [linux, jekyll, page-hits, page-views, hits]
 pin: false
 toc: true
 comments: true
-render_with_liquid: true
-media_subpath: /assets/img/hits/
+render_with_liquid: false
+media_subpath: /assets/img/hits
+image:
+  path: google_analytics_view.png
+  alt: Demo View of Google Analytics. (Credit:- https://agencyanalytics.com)
 ---
 
 -------
@@ -85,6 +88,8 @@ Once you generate your site, you can see a small Hits counter badge at the begin
 ![Sample HITS Badge](3-hits-sample-badge.png)
 _Sample HITS Badge_
 
+
+Of course, you can tweak the look of the final badge as per your liking as shown in this post title. 
 
 That's it. Happy writing with a happy feeling :-).
 

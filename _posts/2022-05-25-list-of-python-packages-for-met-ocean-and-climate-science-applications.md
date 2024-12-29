@@ -7,6 +7,10 @@ tags: [python,python-modules,python-packages,scientific-modules]
 pin: false
 toc: true
 render_with_liquid: true
+media_subpath: /assets/img/python_4_metoc/
+image:
+  path: python_sci_ecosystem.png
+  alt: Sample Python Ecosystem for Scientific applications. (Credit:- https://www.datacamp.com/)
 ---
 
 -------

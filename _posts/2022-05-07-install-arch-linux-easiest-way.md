@@ -9,6 +9,9 @@ toc: true
 comments: true
 render_with_liquid: true
 media_subpath: /assets/img/arch-install/
+image:
+  path: arch_linux_screen_shot.png
+  alt: Sample Screenshot by Reditt User 'Houston_NeverMind' on 'unixporn' Channel. (Credit:- https://www.reddit.com/)
 ---
 
 -------

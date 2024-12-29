@@ -8,6 +8,10 @@ pin: false
 toc: true
 comments: true
 render_with_liquid: true
+media_subpath: /assets/img/wgrib2/
+image:
+  path: ncl_grib2_plot.png
+  alt: Sample Plot of GRIB2 Data using NCL. (Credit:- https://www.ncl.ucar.edu).
 ---
 
 -------

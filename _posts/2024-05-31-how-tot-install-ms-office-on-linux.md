@@ -9,14 +9,13 @@ toc: true
 comments: true
 render_with_liquid: false
 media_subpath: /assets/img/winapps/
+image:
+  path: winapps-word-highlight.png
+  alt: Fully Working MS Office 2021 Word File in Arch Linux. (Credit:- Author)
 ---
 
-> A post regarding installing MS Office on Alma Linux or RHEL based OS is available at [https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros](https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros).
+> A post regarding installing MS Office on Alma Linux or RHEL based OS is available at [https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros](https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros). You may find it interesting and useful as there are not many tutorials available on this topic.
 {: .prompt-tip }
-
-![MS Office 2021 Word File in Arch Linux](winapps-word-highlight.png){: .shadow }
-_MS Office 2021 Word File in Arch Linux_
-
 
 ## Requirement of Microsoft Office
 

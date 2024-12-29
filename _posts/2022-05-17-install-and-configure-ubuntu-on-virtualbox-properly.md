@@ -9,6 +9,10 @@ toc: true
 comments: true
 render_with_liquid: true
 media_subpath: /assets/img/virtualbox/
+image:
+  path: 48-vbox-ubu-post-inst-auto-adjust-screen.png
+  alt: Ubuntu Linux Running inside VirtualBox. (Credit:- Author)
+
 ---
 
 -------

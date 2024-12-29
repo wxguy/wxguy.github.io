@@ -7,6 +7,10 @@ tags: [jekyll,asciidoc,linux,github]
 pin: false
 toc: true
 render_with_liquid: true
+media_subpath: /assets/img/jekyll_blog
+image:
+  path: jekyll.png
+  alt: Landing Page of Jekyll, a Plain Text to Static Website Generator. (Credit:- https://jekyllrb.com)
 ---
 
 -------

@@ -80,9 +80,8 @@ script_includes:
           </em>
         </span>
 
-        <div>
+        
           <!-- pageviews -->
-          
 
           {% if site.pageviews.provider and site.analytics[site.pageviews.provider].id %}
             <span>
@@ -94,15 +93,18 @@ script_includes:
 
           {% endif %}
 
-          <!-- read time -->
-          {% include read-time.html content=content prompt=true lang=lang %}
           <span>
             <em id="pv" class="pageviews">
               <i class="fa-duotone fa-circle-dot"></i>
             </em>
-              <img style="width: inherit;" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fwxguy.github.io%2F{{ page.url }}&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Hits&edge_flat=false" alt="Hits" />
+              <img style="width: inherit;" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fwxguy.github.io%2F{{ page.url }}&count_bg=%2318C0B2&title_bg=%23630A96&icon=statuspage.svg&icon_color=%23E7E7E7&title=VIEWS&edge_flat=false" alt="Hits" />
           </span>
+
+          <!-- read time -->
+          
+          {% include read-time.html content=content prompt=true lang=lang %}
         </div>
+        <div>
       </div>
     </div>
   </header>

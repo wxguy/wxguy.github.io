@@ -9,6 +9,9 @@ toc: true
 comments: true
 render_with_liquid: true
 media_subpath: /assets/img/sublime_text/
+image:
+  path: sublime_text_4.png
+  alt: Sample Screenshot of SublimeText4. (Credit:- https://www.sublimetext.com)
 ---
 
 ## IDE or Text Editor for Python Development?

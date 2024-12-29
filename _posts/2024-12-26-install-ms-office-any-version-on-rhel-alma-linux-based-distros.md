@@ -9,6 +9,9 @@ toc: true
 comments: true
 render_with_liquid: true
 media_subpath: /assets/img/ms_office_on_rhel/
+image:
+  path: redhat-microsoft-puzzle.jpg
+  alt: Representative Image Credit to https://ohthehugemanatee.org.
 ---
 
 ## Why Separate Post?

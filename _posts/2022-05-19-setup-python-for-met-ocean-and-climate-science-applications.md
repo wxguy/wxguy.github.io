@@ -8,6 +8,10 @@ tags: [python,scientific,conda]
 pin: false
 toc: true
 render_with_liquid: true
+media_subpath: /assets/img/python_4_metoc
+image:
+  path: python_ide_options.png
+  alt: Sample Image Showcasing Options Available for Python. (Credit:- https://seattlewebsitedevelopers.medium.com)
 ---
 
 -------

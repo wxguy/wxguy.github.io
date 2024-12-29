@@ -9,6 +9,9 @@ toc: true
 comments: true
 render_with_liquid: true
 media_subpath: /assets/img/virtual-machine/
+image:
+  path: virt-manager-ubuntu-after-install.png
+  alt: Ubuntu Linux Running inside Virt Manager. (Credit:- Author)
 ---
 
 -------
@@ -265,7 +268,7 @@ $ sudo mount -t 9p -o trans=virtio /shared ~/shared
 
 Now onwards you should be able to access all host files under `~/shared` on Guest OS.  I tried adding some files under Host OS and accessed them via Guest. Again, created a test file on Guest OS and accessed it from Host OS. I also tried sharing NTFS and FAT filesystem to Guest and it worked flawlessly.
 
-## Guest OS Performance and Opinion 
+## Guest OS Performance and Opinion
 
 ### The Good
 

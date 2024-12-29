@@ -7,7 +7,10 @@ tags: [jekyll,github,godaddy]
 pin: false
 toc: true
 render_with_liquid: true
-media_subpath: /assets/img/posts/
+media_subpath: /assets/img/jekyll_blog
+image:
+  path: jekyll_and_github.jpg
+  alt: Jekyll and GitHub. A Representative Image. (Credit:- https://team-coder.com)
 ---
 
 -------
