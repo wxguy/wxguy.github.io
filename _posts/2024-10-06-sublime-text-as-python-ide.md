@@ -7,8 +7,8 @@ tags: [python, ide, text-editor]
 pin: false
 toc: true
 comments: true
-render_with_liquid: true propo
-img_path: /assets/img/sublime_text/
+render_with_liquid: true
+media_subpath: /assets/img/sublime_text
 ---
 
 ## IDE or Text Editor for Python Development?

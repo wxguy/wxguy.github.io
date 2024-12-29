@@ -8,7 +8,7 @@ pin: false
 toc: true
 comments: true
 render_with_liquid: true
-img_path: /assets/img/ms_office_on_rhel/
+media_subpath: /assets/img/ms_office_on_rhel/
 ---
 
 ## Why Separate Post?

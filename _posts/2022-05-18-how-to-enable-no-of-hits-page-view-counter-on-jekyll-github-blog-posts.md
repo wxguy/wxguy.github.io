@@ -7,8 +7,8 @@ tags: [linux, jekyll, page-hits, page-views, hits]
 pin: false
 toc: true
 comments: true
-render_with_liquid: false
-img_path: /assets/img/hits/
+render_with_liquid: true
+media_subpath: /assets/img/hits/
 ---
 
 -------

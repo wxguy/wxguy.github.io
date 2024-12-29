@@ -6,8 +6,8 @@ categories: [Blogging, Tutorial]
 tags: [jekyll,github,godaddy]
 pin: false
 toc: true
-render_with_liquid: false
-img_path: /assets/img/posts/
+render_with_liquid: true
+media_subpath: /assets/img/posts/
 ---
 
 -------

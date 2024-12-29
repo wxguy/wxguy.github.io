@@ -7,8 +7,8 @@ tags: [arch linux,linux, virtual machine, ubuntu, virt-manager]
 pin: false
 toc: true
 comments: true
-render_with_liquid: false
-img_path: /assets/img/virtual-machine/
+render_with_liquid: true
+media_subpath: /assets/img/virtual-machine/
 ---
 
 -------

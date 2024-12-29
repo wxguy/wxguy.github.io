@@ -18,7 +18,7 @@ Vanakkam (Hello) 🙏 all,
 
 Thanks for dropping by to know about me. 
 
-## Geo Location 
+## Geo Location
 
 I am a technology enthusiastic from India. My profile name in GitHub is `WxGuy` and I would like to be referred to as the same in this virtual space.
 

@@ -7,8 +7,8 @@ tags: [arch linux, linux, virtualbox, ubuntu]
 pin: false
 toc: true
 comments: true
-render_with_liquid: false
-img_path: /assets/img/virtualbox/
+render_with_liquid: true
+media_subpath: /assets/img/virtualbox/
 ---
 
 -------

@@ -7,8 +7,8 @@ tags: [arch linux,linux, manjaro]
 pin: false
 toc: true
 comments: true
-render_with_liquid: false
-img_path: /assets/img/arch-install/
+render_with_liquid: true
+media_subpath: /assets/img/arch-install/
 ---
 
 -------

@@ -8,7 +8,7 @@ pin: false
 toc: true
 comments: true
 render_with_liquid: true
-img_path: /assets/img/freerdp/
+media_subpath: /assets/img/freerdp/
 ---
 
 ## About FreeRDP

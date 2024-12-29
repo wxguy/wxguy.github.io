@@ -7,8 +7,8 @@ tags: [virtual-machine, ms-office, linux]
 pin: false
 toc: true
 comments: true
-render_with_liquid: true
-img_path: /assets/img/winapps/
+render_with_liquid: false
+media_subpath: /assets/img/winapps/
 ---
 
 > A post regarding installing MS Office on Alma Linux or RHEL based OS is available at [https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros](https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros).

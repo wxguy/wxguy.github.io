@@ -8,7 +8,7 @@ pin: false
 toc: true
 comments: true
 render_with_liquid: true
-img_path: /assets/img/rhel_perfect_desktop/
+media_subpath: /assets/img/rhel_perfect_desktop/
 ---
 
 ## Why Old and Conservative Distribution

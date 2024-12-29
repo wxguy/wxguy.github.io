@@ -6,7 +6,7 @@ categories: [Blogging, Tutorial]
 tags: [jekyll,asciidoc,linux,github]
 pin: false
 toc: true
-render_with_liquid: false
+render_with_liquid: true
 ---
 
 -------
