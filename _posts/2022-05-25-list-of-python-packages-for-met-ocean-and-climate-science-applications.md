@@ -9,7 +9,8 @@ toc: true
 render_with_liquid: true
 media_subpath: /assets/img/python_4_metoc/
 image:
-  path: python_sci_ecosystem.png
+  path: python_sci_ecosystem.webp
+  lqip: data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACQBACdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdMoR8l1bAUD3pVF4VevZqK8AA/rOlpXvhegZqFPo6AJG53jU/BDtQn4zhJrtkMoANcWwm7CHMG8sm2bEAvYy05P/0c5wdjSXHj2NR5CJRhBBLqosIWG4AAA==
   alt: Sample Python Ecosystem for Scientific applications. (Credit:- https://www.datacamp.com/)
 ---
 

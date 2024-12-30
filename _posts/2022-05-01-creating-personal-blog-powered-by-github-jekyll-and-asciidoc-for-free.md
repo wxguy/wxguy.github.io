@@ -9,7 +9,8 @@ toc: true
 render_with_liquid: true
 media_subpath: /assets/img/jekyll_blog
 image:
-  path: jekyll.png
+  path: jekyll.webp
+  lqip: data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAgCdASoUAAsAPzmIulQvKSWjMAgB4CcJQBibBaSAAP7qeKYlfBktR/rTDkiZNat5iJtkYAA=
   alt: Landing Page of Jekyll, a Plain Text to Static Website Generator. (Credit:- https://jekyllrb.com)
 ---
 

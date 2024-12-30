@@ -10,7 +10,8 @@ comments: true
 render_with_liquid: false
 media_subpath: /assets/img/winapps/
 image:
-  path: winapps-word-highlight.png
+  path: winapps-word-highlight.webp
+  lqip: data:image/webp;base64,klGRmwAAABXRUJQVlA4IGAAAACwAwCdASoUAAsAPzmGuVQvKSWjMAgB4CcJZwAAWph3LLvqwIKEAAD+zFA4e8KXOEN2Bt7iYVOc+0qw3cUUhy3GEPVxjbxaXc1GlW6w25gHdmWzbQqXH/nhh8IjcbRAAAA=
   alt: Fully Working MS Office 2021 Word File in Arch Linux. (Credit:- Author)
 ---
 

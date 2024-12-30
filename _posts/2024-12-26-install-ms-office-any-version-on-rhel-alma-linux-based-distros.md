@@ -10,7 +10,8 @@ comments: true
 render_with_liquid: true
 media_subpath: /assets/img/ms_office_on_rhel/
 image:
-  path: redhat-microsoft-puzzle.jpg
+  path: redhat-microsoft-puzzle.webp
+  lqip: data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAABwBACdASoUAAsAPzmEuVOvKKWisAgB4CcJbACdMoO4BYf4CTcE8OxSMVcjGAD+2oToQ+Dj96VlItko1bBHuWC+QK07m0zz5BxcwH/YLAt/69n4SDPktuhqo8scmMVzMuSEG0KWZYo6GFy2hJGvr/0KqAQSxB8XyN53RBpMP6qnaAokHbmZTJLScySAAA==
   alt: Representative Image Credit to https://ohthehugemanatee.org.
 ---
 

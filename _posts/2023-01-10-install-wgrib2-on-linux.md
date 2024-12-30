@@ -10,7 +10,8 @@ comments: true
 render_with_liquid: true
 media_subpath: /assets/img/wgrib2/
 image:
-  path: ncl_grib2_plot.png
+  path: ncl_grib2_plot.webp
+  lqip: data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACQBACdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdMoR8l1bAUD3pVF4VevZqK8AA/rOlpXvhegZqFPo6AJG53jU/BDtQn4zhJrtkMoANcWwm7CHMG8sm2bEAvYy05P/0c5wdjSXHj2NR5CJRhBBLqosIWG4AAA==
   alt: Sample Plot of GRIB2 Data using NCL. (Credit:- https://www.ncl.ucar.edu).
 ---
 

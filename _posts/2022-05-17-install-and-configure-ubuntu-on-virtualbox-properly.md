@@ -10,7 +10,8 @@ comments: true
 render_with_liquid: true
 media_subpath: /assets/img/virtualbox/
 image:
-  path: 48-vbox-ubu-post-inst-auto-adjust-screen.png
+  path: 48-vbox-ubu-post-inst-auto-adjust-screen.webp
+  lqip: data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJaF9qRhYgAibVjwgfXgAA/ujwDBnxzdJKwR5oyM2xD93XFQlq5of2i5FjCz3Fl/jP8sa8IpQQA1IAaQAAAA==
   alt: Ubuntu Linux Running inside VirtualBox. (Credit:- Author)
 
 ---

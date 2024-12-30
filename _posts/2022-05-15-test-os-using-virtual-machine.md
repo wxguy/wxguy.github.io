@@ -10,7 +10,8 @@ comments: true
 render_with_liquid: true
 media_subpath: /assets/img/virtual-machine/
 image:
-  path: virt-manager-ubuntu-after-install.png
+  path: virt-manager-ubuntu-after-install.webp
+  lqip: data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoUAAsAPzmGulQvKSWjMAgB4CcJaACsACIG8Uzps2ZpSgAA/tkKgvAYnfq5PHUC0HUpveBuoR2UtiOjJwpSSp04kZ6nhdhMAAA=
   alt: Ubuntu Linux Running inside Virt Manager. (Credit:- Author)
 ---
 

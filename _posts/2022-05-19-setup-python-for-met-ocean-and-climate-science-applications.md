@@ -10,7 +10,8 @@ toc: true
 render_with_liquid: true
 media_subpath: /assets/img/python_4_metoc
 image:
-  path: python_ide_options.png
+  path: python_ide_options.webp
+  lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACQAwCdASoUAAsAPzmEuVOvKKWisAgB4CcJZwAAUq5UuWq4UcuQAP7UZ8sLhIEplyF4knKcN2AU685Vg6lVgqCfpXWszdi+buTR3kkxjU8Z1h1g36RvfJIHwtZFb6QYFwbMaZfYARIAAA==
   alt: Sample Image Showcasing Options Available for Python. (Credit:- https://seattlewebsitedevelopers.medium.com)
 ---
 

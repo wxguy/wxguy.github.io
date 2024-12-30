@@ -10,7 +10,8 @@ comments: true
 render_with_liquid: true
 media_subpath: /assets/img/sublime_text/
 image:
-  path: sublime_text_4.png
+  path: sublime_text_4.webp
+  lqip: data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoUAAsAPzmIuVQvKSWjMAgB4CcJZwDMHCKVzoaE1ll0UAAA/tNH1oB5ugqQBBsDhpjvfU4OGJ9LDH7DMVtY1U4tNiK2QAAA
   alt: Sample Screenshot of SublimeText4. (Credit:- https://www.sublimetext.com)
 ---
 

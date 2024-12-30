@@ -10,7 +10,8 @@ comments: true
 render_with_liquid: true
 media_subpath: /assets/img/arch-install/
 image:
-  path: arch_linux_screen_shot.png
+  path: arch_linux_screen_shot.webp
+  lqip: data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAABwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJQBOgA8jLpqbWapAA+2fFDQ2d6qqCSIE8rKqhProPikd+/l/Lqj0AlJno3rukLzcwAA==
   alt: Sample Screenshot by Reditt User 'Houston_NeverMind' on 'unixporn' Channel. (Credit:- https://www.reddit.com/)
 ---
 

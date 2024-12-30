@@ -10,7 +10,8 @@ comments: true
 render_with_liquid: true
 media_subpath: /assets/img/freerdp/
 image:
-  path: freerdp_server_screenshot.png
+  path: freerdp_server_screenshot.webp
+  lqip: data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwBACdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdOUE4AAaPfvJEyW8csgAA/iNMIkqPvbirZtgIJVcQ25iIxAR4he0ECx2pHG4dSqJ6deQAx921Ih1hBMNpk9nTS8jvTqW7+ygN6gAAAA==
   alt: Accessing Linux from Windows using FreeRDP. (Credit:- https://www.freerdp.com)
 ---
 

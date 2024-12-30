@@ -10,7 +10,8 @@ comments: true
 render_with_liquid: false
 media_subpath: /assets/img/hits
 image:
-  path: google_analytics_view.png
+  path: google_analytics_view.webp
+  lqip: data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAABQAwCdASoUAAsAPzmGu1OvKSYisAgB4CcJZwAAetChWNxgAAD+7mATQptra0DrAzRqmu9ssYS8AA==
   alt: Demo View of Google Analytics. (Credit:- https://agencyanalytics.com)
 ---
 
