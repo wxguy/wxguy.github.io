@@ -11,7 +11,7 @@ render_with_liquid: true
 media_subpath: /assets/img/rhel_perfect_desktop/
 image:
   path: alma-linux-xfce.webp
-  lqip: UklGRnAAAABXRUJQVlA4IGQAAADwAwCdASoUAAsAPzmGuVOvKSWisAgB4CcJbACdMoADKpqq3WerZAAAAPxnM02Vxr4QrRxun/Pw9GcVDkQhsCF4gOrJXLRIwrQz391mu5KmVB3H/fzNzduh9SX3iUNqr0nNcAAA
+  lqip: UklGRm4AAABXRUJQVlA4IGIAAAAQBACdASoUAAsAPzmGu1QvKSYjMAgB4CcJbACdMoR3ACfuTqHI2F3+kAD8ZzNNlca+EK0cbp4IUQ1rXAKa1IMa+LakEOHxHHtzArJEWUz/7OSiHfxNEEmrR6Av3iTrD8/AAA==
   alt: Alma Linux with XFCE4 Desktop Manager in Live Mode. (Credit:- https://wiki.almalinux.org)
 ---
 
