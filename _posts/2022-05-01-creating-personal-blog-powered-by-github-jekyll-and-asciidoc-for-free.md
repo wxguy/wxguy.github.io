@@ -52,17 +52,42 @@ I have installed all the applications and packages on my [Arch Linux](https://ar
 
 Install all necessary libraries and packages
 
+On Arch Linux
+
 ```console
 sudo paru -Sy ruby base-devel git
+```
+
+On OpenSuse
+
+```console
+sudo zypper install ruby ruby-devel git -y
 ```
 
 > The AsciiDoctor framework is not always updated with the phase of the latest ruby release. However, Arch Linux always installs the latest version of ruby. To avoid incompatibilities, between ruby and AsciiDoctor, it is recommended to use Ruby Version Manager (rvm) from [https://rvm.io/](https://rvm.io/). Installation instructions are also listed on the website. I have installed `ruby 3.0` on my machine.
 {: .prompt-tip }
 
-Install gem packages
+
+## Install gem packages
+
+I prefer to install all the gem packages in to user directory. To ensure to avoid permission error, you have to add following lines in `~/.bashrc` or `~/.zshrc`.
+
+```shell
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+```
+
+Make the updated PATH available by sourcing.
+
+```shell
+source ~/.zshrc
+```
+
+Install all necessary base gems.
 
 ```console
-gem install exec jekyll bundler
+gem install exec jekyll bundler --user-install
 ```
 
 Clone the [Chirpy theme started](https://github.com/cotes2020/chirpy-starter/generate) repo by clicking on it. Name the repo as `username.github.io` and in my case, I entered `wxguy.github.io`  Once I created the remote repo, I cloned it to the local machine for further modification.
@@ -92,6 +117,12 @@ gem "jekyll-sitemap"
 end
 ```
 
+Before we install gems using bundle, we have to ensure that it installs plugins to user directory as we did in gem install procedure. We can set the local path to bundle install with following command.
+
+```shell
+bundle config set --local path $(ruby -r rubygems -e 'puts Gem.user_dir')
+```
+
 Install all plugins required for using the Chirpy theme. It may take a few min, depending on your network speed.
 
 ```console
@@ -107,7 +138,7 @@ Start the server using the below `Jekyll` command.
 bundle exec jekyll serve --watch
 ```
 
-If everything goes well, you can access the newly created website through the URL `http://127.0.0.1:4000/` on your favorite web browser. However, at this stage, it will show any post as we have not written any post inside the `_posts` directory.
+If everything goes well, you can access the newly created website through the URL [http://127.0.0.1:4000](http://127.0.0.1:4000) on your favorite web browser. However, at this stage, it will show any post as we have not written any post inside the `_posts` directory.
 
 ## Modify Site Settings
 
@@ -196,9 +227,3 @@ The documentation section of this theme is pretty good. It is recommended that y
 > Please view your post changes in Google Chrome or Chromium. On my system Firefox did not display the site properly. It is also recommanded to review the generated site on *`Private`* mode to ensure that cookies and cache files are not creating an issue.
 {: .prompt-warning }
 
-
-
-------
-You can download this article from [here](https://wxguy.github.io/assets/downloads/pdfs/2022-05-01-creating-personal-blog-powered-by-github-jekyll-and-asciidoc-for-free.pdf) for free.
-
-------
