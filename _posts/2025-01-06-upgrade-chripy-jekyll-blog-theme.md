@@ -1,7 +1,7 @@
 ---
 title: How I Upgraded Blog Theme to Latest Chripy Upstream Version 
 author: wxguy
-date: 2024-12-26 10:00:00 +0530
+date: 2025-01-07 08:00:00 +0530
 categories: [Tutorial]
 tags: [jkyll, gitHub]
 pin: false
