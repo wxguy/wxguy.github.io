@@ -16,7 +16,7 @@ image:
 ---
 
 > A post regarding installing MS Office on Alma Linux or RHEL based OS is available at [https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros](https://wxguy.in/posts/install-ms-office-any-version-on-rhel-alma-linux-based-distros). You may find it interesting and useful as there are not many tutorials available on this topic.
-{: .prompt-tip }
+> {: .prompt-tip }
 
 ## Requirement of Microsoft Office
 
@@ -26,19 +26,19 @@ Undoubtedly, Microsoft Office is one of the most popular and most widely used Of
 
 When searching online for installing MS Office on Linux Desktop, most of the tutorials would tell you to follow one of the following methods:-
 
-* Use alternate native software such as Libre Office, WPS Office, Open Office etc.
+- Use alternate native software such as Libre Office, WPS Office, Open Office etc.
 
-* Use [wine](https://www.winehq.org) to install MS Office.
+- Use [wine](https://www.winehq.org) to install MS Office.
 
-* Use [PlayonLinux](https://www.playonlinux.com/en) which under-the-hood uses wine.
+- Use [PlayonLinux](https://www.playonlinux.com/en) which under-the-hood uses wine.
 
-* Use Paid software for better compatibility such as [crossover](https://www.crossover.com) which is again the improved version of wine.
+- Use Paid software for better compatibility such as [crossover](https://www.crossover.com) which is again the improved version of wine.
 
-* Use Windows Virtual Machine inside Linux Desktop and use it whenever required.
+- Use Windows Virtual Machine inside Linux Desktop and use it whenever required.
 
 or finally
 
-* Install Windows OS alongside Linux and boot into Windows whenever required.
+- Install Windows OS alongside Linux and boot into Windows whenever required.
 
 When you follow any one of the methods listed above, either you will end up using an older version of MS Office or you will still use the software that is not fully compatible with MS Office (except using MS Office directly inside Windows). I have tested all the methods and the best solution I found is the procedure listed in subsequent paragraphs.
 
@@ -54,8 +54,7 @@ I will be writing more about the technical know-how on installing and configurin
 
 I will be covering this tutorial on Arch Linux as it is the only desktop I use nowadays. If you use any other desktop, you must install equivalent commands on your own. Here is my system configuration:
 
-
-```bash
+`````bash
 neofetch
                    -`                    sundar@archlinux
                   .o+`                   ----------------
@@ -76,198 +75,403 @@ neofetch
   `+sso+:-`                 `.-/+oso:    GPU: Intel TigerLake-LP GT2 [Iris Xe Graphics]
  `++:.                           `-/+/   Memory: 11065MiB / 15775MiB
  .`                                 `/
-```
+`````
 
 ## Install Necessary Software
 
-The procedure we are going to follow uses docker for installing and running Windows 11 in the background. Therefore, install all the necessary software:
-
+The procedure we are going to follow uses docker for installing and running Windows 11 in the background. I use `paru` helper software for installing packages. Please whatever package manager is comfortable to you. Install all the necessary packages:
 
 ```bash
-sudo pacman -Sy freerdp dnsmasq vde2 bridge-utils openbsd-netcat libguestfs ebtables iptables podman docker docker-compose
+paru -Syu --needed -y curl dialog freerdp git iproute2 libnotify gnu-netcat docker docker-compose
 ```
 
-Add KVM and libvert into to user group:
+Check if docker is installed correctly using following command:
 
 ```bash
-sudo usermod -aG libvirt $(whoami)
-sudo usermod -aG KVM $(whoami)
+docker --version
 ```
 
-Enable `podman` and `docker` services using following commands:
+and docker-compose using following command:
 
 ```bash
-sudo systemctl enable --now podman.socket
+docker-compose --version
+```
+
+Add docker to user group:
+
+```bash
+sudo usermod -a -G docker $USER
+```
+
+Start the docker using:
+
+```bash
 sudo systemctl start docker
+```
+
+or
+
+```bash
+sudo dockerd
+```
+
+Enable `docker` services using:
+
+```bash
+sudo systemctl enable docker
+```
+
+Ensure that docker is running using following command:
+
+```bash
+systemctl status docker.service
+```
+
+this should show the following output:
+
+```console
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (
+/usr/lib/systemd/system/docker.service; enabled; preset:
+disabled)
+     Active: active (running) since Sun 2025-02-09 15:06:20 UTC; 42s
+ago
+ Invocation: 29275868b7db421f8e199af105b7b85e
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 639 (dockerd)
+      Tasks: 13
+     Memory: 86.2M (peak: 88.4M)
+        CPU: 290ms
+     CGroup: /system.slice/docker.service
+             └─639 /usr/bin/dockerd -H fd:// --containerd=/run/conta
+inerd/containerd.sock
+
 ```
 
 ## Install Windows OS Using Docker
 
-Once the system software is installed and configured, we need to install Windows Virtual Machine on the host OS. We will be using the docker for this purpose. The main advantage of this method is to install the Windows OS without user intervention and run it in the background. It also does not require the user to have a Windows OS ISO file as it would automatically download as part of the installation process. All the details about Windows OS are saved in a config file (`*.yml`). For this, we need to create a `compose.yml` file. You can create it anywhere you like, but, ensure to run the docker-compose command in the same location where the `compose.yml` file exists. In my case, I have created the file in home directory at `~/compose.yml`. Update the `~/compose.yml` file with the following content:
+Once the system software is installed and configured, we need to install Windows Virtual Machine on the host OS. We will be using the docker for this purpose. The main advantage of this method is to install the Windows OS without user intervention and run it in the background. It also does not require the user to have a Windows OS ISO file as it would automatically download as part of the installation process. Before we start installing the Windows OS, we need to clone the winapps repo. I am cloning it in `~/` directory.
 
-```yml
-name: "winapps"
+```bash
+cd ~/
+git clone https://github.com/winapps-org/winapps
+```
 
+Move to the `winapps` directory and ensure that `compose.yaml` file exists in the same directory.
+
+```bash
+cd winapps
+ls com*
+```
+
+Which should show the following output:
+
+```console
+compose.yaml
+```
+
+All the details about Windows OS are saved in the above `*.yaml` file. Sample `compose.yaml` file will is shown below:
+
+```yaml
+# For documentation, FAQ, additional configuration options and technical help, visit: https://github.com/dockur/windows
+
+name: "winapps" # Docker Compose Project Name.
+volumes:
+  # Create Volume 'data'.
+  # Located @ '/var/lib/docker/volumes/winapps_data/_data' (Docker).
+  # Located @ '/var/lib/containers/storage/volumes/winapps_data/_data' or '~/.local/share/containers/storage/volumes/winapps_data/_data' (Podman).
+  data:
 services:
   windows:
-  image: dockurr/windows
-  container_name: windows
-  environment:
-    VERSION: "tiny11"
-    RAM_SIZE: "6G"  # Change RAM size
-    CPU_CORES: "4"   # Change core
-    USERNAME: "Sundar"          # Change username with yours
-    PASSWORD: "xxxxxx"   # Change password with yours
-    privileged: true
+    image: ghcr.io/dockur/windows:latest
+    container_name: WinApps # Created Docker VM Name.
+    environment:
+      # Version of Windows to configure. For valid options, visit:
+      # https://github.com/dockur/windows?tab=readme-ov-file#how-do-i-select-the-windows-version
+      # https://github.com/dockur/windows?tab=readme-ov-file#how-do-i-install-a-custom-image
+      VERSION: "tiny11"
+      RAM_SIZE: "4G" # RAM allocated to the Windows VM.
+      CPU_CORES: "4" # CPU cores allocated to the Windows VM.
+      DISK_SIZE: "64G" # Size of the primary hard disk.
+      #DISK2_SIZE: "32G" # Uncomment to add an additional hard disk to the Windows VM. Ensure it is mounted as a volume below.
+      USERNAME: "sundar" # Edit here to set a custom Windows username. The default is 'MyWindowsUser'.
+      PASSWORD: "Pa$$w0rd" # Edit here to set a password for the Windows user. The default is 'MyWindowsPassword'.
+      HOME: "${HOME}" # Set path to Linux user home folder.
+    privileged: true # Grant the Windows VM extended privileges.
     ports:
-      - 8006:8006
-      - 3389:3389/tcp
-      - 3389:3389/udp
-    stop_grace_period: 2m
-    restart: on-failure
+      - 8006:8006 # Map '8006' on Linux host to '8006' on Windows VM --> For VNC Web Interface @ http://127.0.0.1:8006.
+      - 3389:3389/tcp # Map '3389' on Linux host to '3389' on Windows VM --> For Remote Desktop Protocol (RDP).
+      - 3389:3389/udp # Map '3389' on Linux host to '3389' on Windows VM --> For Remote Desktop Protocol (RDP).
+    stop_grace_period: 120s # Wait 120 seconds before sending SIGTERM when attempting to shut down the Windows VM.
+    restart: on-failure # Restart the Windows VM if the exit code indicates an error.
     volumes:
-      - data:/storage
-      -  /mnt/Data:/storage   #  /path/to/mnt/dir:storage_name
+      - data:/storage # Mount volume 'data' to use as Windows 'C:' drive.
+      - ${HOME}:/shared # Mount Linux user home directory @ '\\host.lan\Data'.
+      #- /path/to/second/hard/disk:/storage2 # Uncomment to mount the second hard disk within the Windows VM. Ensure 'DISK2_SIZE' is specified above.
+      - ./oem:/oem # Enables automatic post-install execution of 'oem/install.bat', applying Windows registry modifications contained within 'oem/RDPApps.reg'.
+      #- /path/to/windows/install/media.iso:/custom.iso # Uncomment to use a custom Windows ISO. If specified, 'VERSION' (e.g. 'tiny11') will be ignored.
+    devices:
+      - /dev/kvm # Enable KVM.
+      #- /dev/sdX:/disk1 # Uncomment to mount a disk directly within the Windows VM (Note: 'disk1' will be mounted as the main drive. THIS DISK WILL BE FORMATTED BY DOCKER).
+      #- /dev/sdY:/disk2 # Uncomment to mount a disk directly within the Windows VM (Note: 'disk2' and higher will be mounted as secondary drives. THIS DISK WILL NOT BE FORMATTED).
 ```
 
-We will be using the above information to tell the docker-compose command to install the Windows OS with all the specifications listed above. You must edit the file content depending on your hardware and liking. The `compose.yml` is a `yml` file. In our case, we will be installing the Windows 11 Tiny version to save space and resources. It is easy to understand the terminologies of the above file. You can always refer to <https://github.com/dockur/windows> for further tweaking the file content. Once saved, you can run the below command to install the Windows OS in the background:
+Edit the above `compose.yaml` file to change username and password of your choice. In my case, I have changed `USERNAME` to _sundar_ and `PASSWORD` to _Pa$$w0rd_.
+
+We will be using the above information to tell the docker-compose command to install the Windows OS with all the specifications listed above. You must edit the file content depending on your hardware and liking. The `compose.yaml` is a `yaml` file. In our case, we will be installing the Windows 11 Tiny version to save space and resources. It is easy to understand the terminologies of the above file. You can always refer to <https://github.com/dockur/windows> for further tweaking the file content. Once saved, you can run the below command to install the Windows OS:
 
 ```bash
-docker compose up -d
+docker compose --file ~/winapps/compose.yaml up
 ```
 
-You can also view what is happening to Windows OS from a web browser at <http://127.0.0.1:8006>. The docker command will install the OS without any user intervention. Once installation is completed, you must logout before proceeding.
+This should produce following output:
 
-> If you wish to access all the files located at different mount partitions, it is recommended to link the mounted partition to your home directory like `ln -s /mnt/Data /home/username`.
-{: .prompt-tip }
+```console
 
-## Install and Configure Winapps
+[+] Running 7/7
+ ✔ windows Pulled                                                                                                                                                                     26.9s
+   ✔ 7890380f2910 Pull complete                                                                                                                                                       21.2s
+   ✔ c66652c32996 Pull complete                                                                                                                                                       24.2s
+   ✔ 2634bc5d9134 Pull complete                                                                                                                                                       24.3s
+   ✔ d7f53ee8739a Pull complete                                                                                                                                                       24.4s
+   ✔ 3c169cf00d7d Pull complete                                                                                                                                                       24.5s
+   ✔ aac9e36b2ca2 Pull complete                                                                                                                                                       24.6s
+[+] Running 3/3
+ ✔ Network winapps_default  Created                                                                                                                                                    0.1s
+ ✔ Volume "winapps_data"    Created                                                                                                                                                    0.0s
+ ✔ Container WinApps        Created                                                                                                                                                    0.1s
+Attaching to WinApps
+WinApps  | ❯ Starting Windows for Docker v4.10...
+WinApps  | ❯ For support visit https://github.com/dockur/windows
+WinApps  | ❯ CPU: Intel Core i7 8550U | RAM: 13/16 GB | DISK: 424 GB (ext4) | KERNEL: 6.13.2-arch1-1...
+WinApps  |
+WinApps  | ❯ Downloading Tiny 11 from archive.org...
+WinApps  |
+WinApps  |      0K ........ ........ ........ ........  0% 3.11M 19m11s
+WinApps  |  32768K ........ ........ ........ ........  1% 2.16M 23m12s
+WinApps  |  65536K ........ ........ ........ ........  2% 1.51M 28m17s
+WinApps  |  98304K ........ ........ ........ ........  3% 1.49M 30m47s
+WinApps  | 131072K ........ ........ ........ ........  4% 2.46M 29m4s
+WinApps  | 163840K ........ ........ ........ ........  5% 2.86M 27m19s
+WinApps  | 196608K ........ ........ ........ ........  6% 1.41M 28m55s
+WinApps  | 229376K ........ ........ ........ ........  7% 1.13M 31m16s
+WinApps  | 262144K ........ ........ ........ ........  7%  944K 34m13s
+.
+.
+.
+BdsDxe: failed to load Boot0002 "UEFI QEMU QEMU HARDDISK " from PciRoot(0x0)/Pci(0xA,0x0)/Scsi(0x0,0x0): Not Found
+WinApps  | BdsDxe: loading Boot0001 "UEFI QEMU DVD-ROM QM00013 " from PciRoot(0x0)/Pci(0x5,0x0)/Sata(0x0,0xFFFF,0x0)
+WinApps  | BdsDxe: starting Boot0001 "UEFI QEMU DVD-ROM QM00013 " from PciRoot(0x0)/Pci(0x5,0x0)/Sata(0x0,0xFFFF,0x0)
+WinApps  | ❯ Windows started succesfully, visit http://localhost:8006/ to view the screen...
 
-
-Clone and move into the winapps repo using the following commands:
-
-```bash
-git clone https://github.com/winapps-org/winapps.git
-cd winapps
 ```
 
-The winapps configuration is stored at `~/.config/winapps/winapps.conf` and create a file with the following content:
+You can also view what is happening to Windows OS from a web browser at <http://127.0.0.1:8006>. It takes some time to update the Windows 11 with latest patches. Once the update process is completed, you must shutdown Windows OS.
+
+Now edit the `~/winapps/compose.yaml` file by commentin the following line:
 
 ```bash
-RDP_USER="Sundar"
-RDP_PASS="xxxxxx"    # Replace the password with yours
-#RDP_DOMAIN="MYDOMAIN"
-RDP_IP="127.0.0.1"
-#RDP_SCALE=100
-#RDP_FLAGS=""
-#MULTIMON="true"
-#DEBUG="true"
-#FREERDP_COMMAND="xfreerdp"
+comment '- ./oem:/oem'
 ```
 
-Since you are already there in `winapps` directory, you can check if your Windows 11 is installed correctly using following command:
+after commenting, it should look like following:
 
 ```bash
-bin/winapps check
+# comment '- ./oem:/oem'
 ```
 
-The above command will ask you to accept the key and accept it. Thereafter, it will bring the Windows File Explorer as shown in the following figure.
-
-
-![Windows Explorer in Arch Linux](windows-explorer-check.png){: .shadow }
-_Windows Explorer in Arch Linux_
-
-Now you can navigate to network --> tsclient --> Linux home dir --> copy MS Office installers to --> Documents folder of Windows 11. Then install MS Office which you generally do just by clicking setup.exe --> next --> next --> and done. Once MS Office is installed, you can close the File Explorer. If everything goes well, you can install the actual winapps using the following command:
+We will use the above config file for booting the Windows OS from now onwards. For this, make the following directory and copy the `compose.yaml` file to it:
 
 ```bash
-./installer.sh
+mkdir -p ~/.config/winapps
+cp ~/winapps/compose.yaml ~/.config/winapps/compose.yaml
 ```
 
-Accept all the questions and install for users only. Once all the above procedures are done, you can try to open a document created using MS Office and this time by right click --> Open with --> Choose the 'Microsoft Word' application. It should open in MS Office Word application as shown in the following image.
-
-
-![Sample IEEE Paper Template in MS Office Word in Arch Linux](ieee-paper-template-in-ms-office-word.png){: .shadow }
-_Sample IEEE Paper Template in MS Office Word in Arch Linux_
-
-
-## Final Tweaking
-
-
-If all works well, then you can manage (start/stop) using the following docker commands:
+Finally, ensure to shutdown and boot the Windows OS again:-
 
 ```bash
-docker compose start  # for starting the machine
-docker compose stop   # for stopping the machine
+docker compose --file ~/.config/winapps/compose.yaml down
+docker compose --file ~/.config/winapps/compose.yaml up
 ```
 
-The above commands are good to execute but you will get frustrated as it will through your black screen if the Windows OS is not booted before opening MS Office documents. You can solve this issue by booting Windows OS during Arch Linux boot. For this, create a file `/home/usrename/.config/winapps/win11_start.sh` with the following content:
+> At the moment, it is not possible to access the files stored in different partitions. This will be a problem if you want to save or open a file from different partitions. To overcome this, it is recommended to link the mounted partition to your home directory like `ln -s /mnt/Data /home/username`.
+> {: .prompt-tip }
+
+## Download, Install and Activate MS Office 2011
+
+Once Windows 11 VM is successfully installed, Install MS Office 20XX in client system. I used following method to install MS Office 2011. The post I referred says it is legal to do that. Please let me know if it violates any sort of license, I will remove this section.
+
+Download copy of 2011 to `~/Downloads` directory from Linux host.
 
 ```bash
-#!/bin/sh
-
-sleep 3
-docker compose up -d  # start the docker in the background
+wget https://c2rsetup.officeapps.live.com/c2r/download.aspx\?ProductreleaseID\=ProPlus2021Retail\&platform\=x64\&language\=en-us\&version\=O16GA -P ~/Downloads -O ms_office_setup.exe
 ```
 
-Make it executable:
+Login to Windows 11 and copy `ms_office_setup.exe` file from Linux file system to Downloads of Windows 11 and start the installation. This is required as \*.exe files can be executed only from Windows filesystem.
 
-```bash
-chmod +x /home/username/.config/winapps/win11_start.sh
+The activation code shown below is also taken from another of the GitHub repo. Execute all lines of command at one go in the `Cmd` window with _Admin privilege_ on Windows 11 VM.
+
+```powershell
+if exist "C:\Program Files\Microsoft Office\Office16\ospp.vbs" cd /d "C:\Program Files\Microsoft Office\Office16"
+if exist "C:\Program Files (x86)\Microsoft Office\Office16\ospp.vbs" cd /d "C:\Program Files (x86)\Microsoft Office\Office16"
+for /f %x in ('dir /b ..\root\Licenses16\ProPlus2021VL_KMS*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%x"
+cscript ospp.vbs /inpkey:FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH
+cscript ospp.vbs /sethst:kms.msgang.com
+cscript ospp.vbs /act
+pause
 ```
 
-Next, create a desktop file at `~/.config/autostart/win11-docker.desktop` with the following content:
+Once MS Office is installed on Windows 11 _you must logout_.
 
-```bash
-[Desktop Entry]
-Name=Windows 11 Docker
-GenericName=Windows 11
-Comment=Start Windows 11 using Docker
-Exec=/home/username/.config/winapps/win11_start.sh
-Terminal=false
-Type=Application
-X-GNOME-Autostart-enabled=true
+## Configure Winapps
+
+Before installing winapps, we must create a configuration file at `~/.config/winapps/winapps.conf` with following content.
+
+```conf
+##################################
+#   WINAPPS CONFIGURATION FILE   #
+##################################
+
+# INSTRUCTIONS
+# - Leading and trailing whitespace are ignored.
+# - Empty lines are ignored.
+# - Lines starting with '#' are ignored.
+# - All characters following a '#' are ignored.
+
+# [WINDOWS USERNAME]
+RDP_USER="sundar"
+
+# [WINDOWS PASSWORD]
+# NOTES:
+# - If using FreeRDP v3.9.0 or greater, you *have* to set a password
+RDP_PASS="Pa$$w0rd"
+
+# [WINDOWS DOMAIN]
+# DEFAULT VALUE: '' (BLANK)
+RDP_DOMAIN=""
+
+# [WINDOWS IPV4 ADDRESS]
+# NOTES:
+# - If using 'libvirt', 'RDP_IP' will be determined by WinApps at runtime if left unspecified.
+# DEFAULT VALUE:
+# - 'docker': '127.0.0.1'
+# - 'podman': '127.0.0.1'
+# - 'libvirt': '' (BLANK)
+RDP_IP=""
+
+# [WINAPPS BACKEND]
+# DEFAULT VALUE: 'docker'
+# VALID VALUES:
+# - 'docker'
+# - 'podman'
+# - 'libvirt'
+# - 'manual'
+WAFLAVOR="docker"
+
+# [DISPLAY SCALING FACTOR]
+# NOTES:
+# - If an unsupported value is specified, a warning will be displayed.
+# - If an unsupported value is specified, WinApps will use the closest supported value.
+# DEFAULT VALUE: '100'
+# VALID VALUES:
+# - '100'
+# - '140'
+# - '180'
+RDP_SCALE="100"
+
+# [ADDITIONAL FREERDP FLAGS & ARGUMENTS]
+# NOTES:
+# - You can try adding /network:lan to these flags in order to increase performance, however, some users have faced issues with this.
+# DEFAULT VALUE: '/cert:tofu /sound /microphone'
+# VALID VALUES: See https://github.com/awakecoding/FreeRDP-Manuals/blob/master/User/FreeRDP-User-Manual.markdown
+RDP_FLAGS="/cert:tofu /sound /microphone"
+
+# [MULTIPLE MONITORS]
+# NOTES:
+# - If enabled, a FreeRDP bug *might* produce a black screen.
+# DEFAULT VALUE: 'false'
+# VALID VALUES:
+# - 'true'
+# - 'false'
+MULTIMON="false"
+
+# [DEBUG WINAPPS]
+# NOTES:
+# - Creates and appends to ~/.local/share/winapps/winapps.log when running WinApps.
+# DEFAULT VALUE: 'true'
+# VALID VALUES:
+# - 'true'
+# - 'false'
+DEBUG="true"
+
+# [AUTOMATICALLY PAUSE WINDOWS]
+# NOTES:
+# - This is currently INCOMPATIBLE with 'docker' and 'manual'.
+# - See https://github.com/dockur/windows/issues/674
+# DEFAULT VALUE: 'off'
+# VALID VALUES:
+# - 'on'
+# - 'off'
+AUTOPAUSE="off"
+
+# [AUTOMATICALLY PAUSE WINDOWS TIMEOUT]
+# NOTES:
+# - This setting determines the duration of inactivity to tolerate before Windows is automatically paused.
+# - This setting is ignored if 'AUTOPAUSE' is set to 'off'.
+# - The value must be specified in seconds (to the nearest 10 seconds e.g., '30', '40', '50', etc.).
+# - For RemoteApp RDP sessions, there is a mandatory 20-second delay, so the minimum value that can be specified here is '20'.
+# - Source: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/terminal-services-remoteapp-8482-session-termination-logic/ba-p/246566
+# DEFAULT VALUE: '300'
+# VALID VALUES: >=20
+AUTOPAUSE_TIME="300"
+
+# [FREERDP COMMAND]
+# NOTES:
+# - WinApps will attempt to automatically detect the correct command to use for your system.
+# DEFAULT VALUE: '' (BLANK)
+# VALID VALUES: The command required to run FreeRDPv3 on your system (e.g., 'xfreerdp', 'xfreerdp3', etc.).
+FREERDP_COMMAND=""
 ```
 
-That's it. Now onwards, every time you reboot, your Windows OS also will boot and run in the background. This would ensure that your MS Office applications are always available in Arch Linux whenever you open it.
+The username and password values should be exactly what we have used in `compose.yaml` file. In my case, I changed only `RDP_USER` and `RDP_PASS` fields.
 
-
-## Useful Tips
-
-You can access the full Windows 11 Desktop using following command:
+Once the config file is created, we can download and execute the `winapps` online installer from the host OS i.e., Arch Linux in this case using following command:
 
 ```bash
-xfreerdp3 +clipboard /u:Sundar +compression -wallpaper -menu-anims -themes /v:127.0.0.1 /p:xxxxxx +fonts /drive:Data,/mnt/Data /home-drive /f
+bash <(curl https://raw.githubusercontent.com/winapps-org/winapps/main/setup.sh)
 ```
 
-where:
-  * `+clipboard` --> Share clipboard copy between Host and Guest OS
-  * `/u:` --> Username of the Windows 11 Desktop
-  * `+compression`  --> Enable data compression to speedup the machine
-  * `-wallpaper` --> Don't shown wallpaper to improve the Windows 11 performance
-  * `-menu-anims`  --> Remove menu animation of Guest OS
-  * `-themes`  --> Remove theme of Guest OS
-  * `/v:`  -->  Guest OS IP address
-  * `/p:`  Password of the user we will be required to login (Change with yours)
-  * `+fonts`  -->  Keep the Guest OS fonts
-  * `/drive:` Enable drive. In this case, I am sharing mount point
-  * `/home-drive`  -->  Share home directory of Host OS
-  * `/f`  -->  Open Windows 11 in full-screen mode
+Follow the on-screen instruction. Install `winapps` to current system is recommended. That's it.
 
-> When the above command is executed with `\f` (full-screen) you won't be able to navigate to next opened window using normal `Alt` + `Tab` keys. If you wish to exit windows full-screen, you can use the `Alt` + `Ctrl` + `Enter` keys.
-{: .prompt-tip }
+Now onwards, you can open any Word, Presentation or Excel sheets by right click and choosing appropriate MS Office application names. Anytime, you can access Windows 11 OS from your favourite launchers. For Xfce, it is under Application –> Others –> Windows and on KDE, it is under _Lost and Found_.
 
-If you encounter any error in connecting to Windows applications, you can check if Windows 11 docker service is running using following command:
+## Miscellaneous
+
+I have tried `winapps` on GNOME, KDE, XFCE and also in Hyprland. I found that performance of MS Office is much better in XFCE and more surprisingly in Hyprland. It opens all application as intended and faster. Whenever you reboot your system, Windows 11 should also be booting in background. If something goes wrong, it is most likely that Windows 11 has not booted in the background. You can use following commands to check and control Windows 11 VM using docker commands.
+
+Check if the Windows 11 is booted by checking docker process.
 
 ```bash
-$ docker ps
+docker ps
 ```
 
-The above command should list you the Windows Guest OS as shown below:
+and it should show the running process as shown below, if your Windows OS is booted correctly:
 
-```bash
+```console
 CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS         PORTS                                                                                                                             NAMES
 4d4e0f472f61   dockurr/windows   "/usr/bin/tini -s /r…"   7 minutes ago   Up 2 minutes   0.0.0.0:3389->3389/tcp, :::3389->3389/tcp, 0.0.0.0:8006->8006/tcp, 0.0.0.0:3389->3389/udp, :::8006->8006/tcp, :::3389->3389/udp   windows
 ```
 
-Your docker may not boot Windows 11 Desktop if you have enabled 'Desktop Sharing' option in GNOME Settings. I encountered this issue recently and disabled it from GNOME Settings --> Desktop Sharing --> Disable Desktop Sharing.
+Following actions can be performed whenever you are in need with respect to Windows 11 Virtual Machine.
 
+```bash
+docker compose --file ~/.config/winapps/compose.yaml start # Power on the Windows VM
+docker compose --file ~/.config/winapps/compose.yaml pause # Pause the Windows VM
+docker compose --file ~/.config/winapps/compose.yaml unpause # Resume the Windows VM
+docker compose --file ~/.config/winapps/compose.yaml restart # Restart the Windows VM
+docker compose --file ~/.config/winapps/compose.yaml stop # Gracefully shut down the Windows VM
+docker compose --file ~/.config/winapps/compose.yaml kill # Force shut down the Windows VM
+```
+
+That's all. Happy editing...
