@@ -172,7 +172,13 @@ By default, you have to use `ctrl` + `space` keys to get autocompletion. However
 
 ### Asciidoctor and Asscidoc
 
-[Asciidoctor](https://packagecontrol.io/packages/Asciidoctor) and [AsciiDoc](https://packagecontrol.io/packages/AsciiDoc) plugins are more personal in nature as I work on some of the project using AsciiDoctor. It provides better syntax highlighting.
+[Asciidoctor](https://packagecontrol.io/packages/Asciidoctor) and [AsciiDoc](https://packagecontrol.io/packages/AsciiDoc) plugins are more personal in nature as I work on some of the project using AsciiDoctor. It provides better syntax highlighting. However, I will not recommend those packages to install as it is not updated for more than ten years. Instead, install package from [https://github.com/tajmone/ST4-Asciidoctor](https://github.com/tajmone/ST4-Asciidoctor). Add the following repo in `Package Control` --> `Add Repository`:
+
+```bash 
+https://github.com/tajmone/ST4-Asciidoctor
+```
+
+then search for `ST4-Asciidoctor` from `Package Control` --> `Install Packages` to install it.
 
 ### Colour Schemes
 
