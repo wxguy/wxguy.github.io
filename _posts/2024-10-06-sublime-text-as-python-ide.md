@@ -75,7 +75,22 @@ paru -Sy ttf-victor-mono-nerd
 
 ### Auto Completion (Through Language Server Protocol [LSP])
 
-The first and most important duty of IDE or Text Editor meant for software development is to provide better auto completion. Now a days, this feature is mostly provided by a technique called Language Server Protocol (LSP). More on this is listed at [https://microsoft.github.io/language-server-protocol](https://microsoft.github.io/language-server-protocol) and [https://langserver.org/](https://langserver.org). Details about LSP for Sublime Text is provided in the link at [https://lsp.sublimetext.io](https://lsp.sublimetext.io) and list of supported Language Server is listed at [https://lsp.sublimetext.io/language_servers](https://lsp.sublimetext.io/language_servers). To provide better autocompletion, linting and formatting, we will install four packages such as `LSP`, `LSP-pyright`, `LSP-ruff` and `Jedi - Python Auto Completion` from Package Control. To do that open Command Palette either from `Tool` --> `Command Palette` or simply pressing `Ctrl` + `Shift` + `P` then type install packages. In the package control bar, type each of the package names and hit enter for install. Restart the editor to take effect. Now you can open any Python file with `.py` extension and start importing and code few lines. You will find how good the editor turned it to be.
+The first and most important duty of IDE or Text Editor meant for software development is to provide better autocompletion. Nowadays, this feature is mostly provided by a technique called Language Server Protocol (LSP). More on this is listed at [https://microsoft.github.io/language-server-protocol](https://microsoft.github.io/language-server-protocol) and [https://langserver.org/](https://langserver.org). Details about LSP for Sublime Text is provided in the link at [https://lsp.sublimetext.io](https://lsp.sublimetext.io) and list of supported Language Server is listed at [https://lsp.sublimetext.io/language_servers](https://lsp.sublimetext.io/language_servers). To provide better autocompletion, linting and formatting, we will install the following packages from Package Control:
+
+ - `LSP` - base package for providing LSP support in sublime-text-4
+ - `LSP-pyright` - highly performant static type checker and autocompletion provider for Python
+ - `LSP-ruff`  - linter and code formatter for Python
+ - `python-black`  - better code formatter for Python
+ - `LSP-cspell` - spell checker for developers
+ - `LSP-ltex-ls` - Spell and grammar checker for latex and markdown
+ - `LSP-marksman` - LSP provider for markdown
+ - `LSP-bash` - LSP provider for shell scripts
+ - `LSP-file-watcher-chokidar` - LSP for file watcher which is recommended by LSP-pyright package
+ - `LSP-json` - LSP for json files
+ - `LSP-yaml` - LSP for yaml files
+ - `LSP-lua` - LSP for lua language. Optional. Useful, if you are using NeoVim.
+
+To do that open Command Palette either from `Tool` --> `Command Palette` or simply pressing `Ctrl` + `Shift` + `P` then type `Install Packages`. In the package control bar, type each of the package names and hit enter for install. Restart the editor to take effect. Now you can open any Python file with `.py` extension and start importing and code few lines. You will find how good the editor turned it to be.
 
 ![Auto Complete Suggestion by LSP Client](lsp-autocomplete.png){: .shadow }
 _Auto Complete Suggestion by LSP Client on Python File_
@@ -184,3 +199,5 @@ Like any other text editors and IDEs, Sublime Text also offer set of key binding
   { "keys": ["shift+tab"], "command": "move", "args": {"by": "lines", "forward": false} },
 ]
 ```
+
+With the above plugins and settings, you can truly convert the Sublime Text as lightweight IDE.
