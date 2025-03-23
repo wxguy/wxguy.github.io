@@ -166,7 +166,7 @@ By default, you have to use `ctrl` + `space` keys to get autocompletion. However
 
 ```yaml
 {
-  "auto_complete_selector": "text, comment, string",
+  "auto_complete_selector": "source, text, comment, string",
 }
 ```
 
